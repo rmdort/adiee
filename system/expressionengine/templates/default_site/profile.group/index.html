@@ -1,0 +1,84 @@
+{embed="inc/header"}
+
+<div id="main" role="main">
+	{exp:channel:entries channel="profile" disable="{global-disable}" limit="1"}
+	<h1>{title}</h1>
+	{images}
+	<img src="{url}" alt="{desc}" />
+	{if desc}<p class="caption">{desc}</p>{/if}
+	{/images}
+	<h2>Data</h2>
+	<table summary="This table shows data about this company">
+		<tbody>
+			<tr>
+				<th>Website</th>
+				<td><a class="external" href="http://nilshendriks.com" title="">{portfolio}</a></td>
+			</tr>
+			<tr>
+				<th>Jobtitle</th>
+				<td>{jobtitle}</td>
+			</tr>
+			<tr>
+				<th>Skillset</th>
+				<td>
+					{skills}
+				</td>
+			</tr>
+			<tr>
+				<th>Projects</th>
+				<td>
+					<ul>
+					{projects}
+						<li><a href="{project-url}" class="external">{project-name}</a>{if client-name} - {client-name}{/if}</li>
+					{/projects}
+					</ul>					
+				</td>
+			</tr>
+			<tr>
+				<th>Location</th>
+				<td>{country}</td>
+			</tr>
+								
+			
+<!--
+			Other sites				Stencils - stencil.posterous.com
+								Blog - blog.nilshendriks.com
+								Photography - 
+								photography.nilshendriks.com
+								Playground - playground.nilshendriks.com-->
+			
+
+		</tbody>
+	</table>
+	<h2>Background</h2>
+	{background}
+</div>
+<aside role="complementary">
+	<div id="hcard-Nils-Hendriks" class="vcard">
+	 <span class="fn">{title}</span>
+	 <div class="org">{portfolio}</div>
+
+	 <a class="email" href="mailto:nils@nilshendriks.com">nils@nilshendriks.com</a>
+	 <div class="adr">
+	  <div class="street-address">205 River Valley Road</div>
+	  <span class="locality">Singapore</span>
+	, 
+	  <span class="postal-code">238274</span>
+	
+	  <span class="country-name">Singapore</span>
+	
+	 </div>
+	 <div class="tel">+65 8113 4709</div>
+	 <a class="url" href="aim:goim?screenname=aimsomename">AIM</a>
+	 <a class="url" href="ymsgr:sendIM?yim">YIM</a>
+	 <a class="url" href="xmpp:jabber">Jabber</a>
+	<div class="tags"><a href="http://kitchen.technorati.com/contacts/tag/developer">developer</a> </div>
+	</div>
+	<a class="download" href="#">Download vCard</a>
+
+</aside>
+
+{/exp:channel:entries}
+
+
+{embed="inc/footer"}

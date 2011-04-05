@@ -1,46 +1,14 @@
-{embed="inc/header"}
+{embed="inc/header" body_id="home"}
 
 <div id="main" role="main">
-	<article class="person">
-		<a href="person.php" title="">
-			<h1>nilshendriks.com</h1>
-			<p>Front End Web Developer based in Singapore.</p>
+	{exp:channel:entries channel="profile" disable="{global-disable}" limit="10"}
+	<article class="{categories limit="1" show_group="1"}{category_url_title}{/categories}">
+		<a href="{title_permalink=profile}" title="">
+			<h1>{title}</h1>
+			{background}
 		</a>
 	</article>
-	<article class="company">
-		<a href="page.php" title="">
-			<h1>Artminister</h1>
-			<p>is a small design consultancy located in Singapore. It creates gorgeous, engaging and accessible web sites.
-			</p>
-		</a>
-	</article>
-	<article class="company">
-		<a href="page.php" title="">
-			<h1>Edenspiekermann</h1>
-			<p>Edenspiekermann is an agency for strategy, design and communication with offices in Amsterdam, Berlin, Stuttgart. 
-			</p>
-		</a>
-	</article>
-	<article class="company">
-		<a href="page.php" title="">
-			<h1>Qais Consulting</h1>
-			<p>Qais Consulting is a Singapore based interactive agency who produce groundbreaking work and fresh ideas for global brands.
-			</p>
-		</a>
-	</article>
-	<article class="site">
-		<a href="site.php" title="">
-			<h1>gothere.sg</h1>
-			<p>gothere.sg delivers a very usable way to find your way in Singapore.
-			</p>
-		</a>
-	</article>
-	<article class="person">
-		<a href="jussi.php" title="">
-			<h1>Jussi Edlund</h1>
-			<p>Art Director / Graphic Designer</p>
-		</a>
-	</article>
+	{/exp:channel:entries}
 </div>
 <aside role="complementary">
 	<p>A Different Index tries to collect data about companies and people who build websites. Focused on Singapore and The Netherlands for now.</p>
