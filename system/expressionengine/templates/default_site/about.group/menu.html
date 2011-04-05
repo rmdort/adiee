@@ -1,8 +1,0 @@
-<nav class="menu">
-	<ul>
-	{exp:query sql="SELECT title, url_title, entry_id FROM exp_channel_titles WHERE channel_id=9 ORDER BY title ASC"}
-		<li {if segment_2==url_title||(entry_id=="41"&&segment_2=="")}class="active"{/if}><a href="{if entry_id=="41"}{path=about}{if:else}{path=about}/{url_title}{/if}">{title}</a></li>
-	{/exp:query}
-	<li {if segment_2=="trainers"}class="active"{/if}><a href="{path=about/trainers}">Trainers</a></li>
-	</ul>
-</nav>

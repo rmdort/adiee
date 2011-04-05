@@ -1,63 +1,56 @@
 {embed="inc/header"}
 
-
-<!-- Slideshow -->
-<div id="NlbaHero" class="clearfix">
-	
-	<ul id="Slides">
-		{exp:channel:entries channel="preferences" disable="{global-disable}" dynamic="off" limit="1"}
-		{slideshow}
-		<li>
-			<h3>{heading}</h3>
-			<p>{desc}</p>
-			<img src="{image}" alt="{heading}">
-			<p><a href="{path={switch='library-professionals|students|adults-educators|partners'}}">Read more</a></p>
-		</li>
-		{/slideshow}
-		{/exp:channel:entries}		
+<div id="main" role="main">
+	<article class="person">
+		<a href="person.php" title="">
+			<h1>nilshendriks.com</h1>
+			<p>Front End Web Developer based in Singapore.</p>
+		</a>
+	</article>
+	<article class="company">
+		<a href="page.php" title="">
+			<h1>Artminister</h1>
+			<p>is a small design consultancy located in Singapore. It creates gorgeous, engaging and accessible web sites.
+			</p>
+		</a>
+	</article>
+	<article class="company">
+		<a href="page.php" title="">
+			<h1>Edenspiekermann</h1>
+			<p>Edenspiekermann is an agency for strategy, design and communication with offices in Amsterdam, Berlin, Stuttgart. 
+			</p>
+		</a>
+	</article>
+	<article class="company">
+		<a href="page.php" title="">
+			<h1>Qais Consulting</h1>
+			<p>Qais Consulting is a Singapore based interactive agency who produce groundbreaking work and fresh ideas for global brands.
+			</p>
+		</a>
+	</article>
+	<article class="site">
+		<a href="site.php" title="">
+			<h1>gothere.sg</h1>
+			<p>gothere.sg delivers a very usable way to find your way in Singapore.
+			</p>
+		</a>
+	</article>
+	<article class="person">
+		<a href="jussi.php" title="">
+			<h1>Jussi Edlund</h1>
+			<p>Art Director / Graphic Designer</p>
+		</a>
+	</article>
+</div>
+<aside role="complementary">
+	<p>A Different Index tries to collect data about companies and people who build websites. Focused on Singapore and The Netherlands for now.</p>
+	<a href="#" title="">About ADI</a>
+	<h2>Contributors</h2>
+	<ul>
+		<li><a href="#" title="">Vinay M</a></li>
+		<li><a href="person.html" title="">Nils Hendriks</a></li>
 	</ul>
-	<img src="{site_url}images/site/pointer.png" alt="" class="pointer" />
-	<ul class="nlbaHeroNav">
-		{exp:categories category_group_id="2" children="n"}	
-		<li><h2><a title="{category_name}" href="{path={category_url_title}}">For {category_name} <img src="{site_url}images/site/slide-pointer.png" alt=""></a></h2></li>
-		{/exp:categories}	
-		<li><h2><a href="{path=partners}">For those wishing to explore partnerships with NLBA <img src="{site_url}images/site/slide-pointer.png" alt=""></a></h2></li>
-	</ul>	
-	
-</div>
-<!-- / Slideshow -->
+</aside>
 
-
-<!-- Three column -->		
-<div class="split clearfix">
-		<article class="testimonials">
-			{embed="inc/testimonial"}
-		</article>
-		
-		<article>
-			<header><h4>E-learn courses</h4></header>
-			<div class="content">
-				<ul class="links">
-					{exp:query sql="SELECT A.title, A.url_title, A.entry_id as entryid FROM exp_channel_titles A, exp_category_posts B where A.channel_id=4 AND A.entry_id=B.entry_id and B.cat_id=11 ORDER BY entry_date DESC LIMIT 6"}					
-						<li><a href="{path=/}{exp:nlbaformat:getcaturl entry_id="{entryid}"} {/exp:nlbaformat:getcaturl}view/{url_title}">{title}</a></li>
-					{/exp:query}				
-				</ul>
-				<p><a href="{path=ajax/course-preview}?&file={site_url}uploads/flash/ANM_CoursePreview.swf&w=800&h=542" rel="facebox">View e-Learn demo</a></p>
-			</div>
-		</article>
-		
-		<article>
-			<header><h4>News &amp; events</h4></header>
-			<div class="content">
-				{exp:channel:entries channel="news" limit="1" disable="{global-disable}" orderby="date" sort="desc"}
-				<p><strong>{entry_date format="%d %F %Y"}</strong></p>
-				<p>{exp:eehive_hacksaw words="40" append="..."}{news-body}{/exp:eehive_hacksaw}</p>
-				<p><a href="{title_permalink=news-events/view}">Read more</a></p>
-				{/exp:channel:entries}
-			</div>
-		</article>
-
-</div>
-<!-- Three column -->			
 
 {embed="inc/footer"}

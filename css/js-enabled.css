@@ -1,0 +1,81 @@
+#home #container {
+	position: relative;
+}
+.subgrid {
+	
+}
+.grid #main.subgrid.columns-2 {
+/*	overflow: hidden;
+	clear: both;*/
+	margin-right: 0;
+	width: 51.06%;
+}
+.grid #main.subgrid.columns-3 {
+/*	overflow: hidden;
+	clear: both;*/
+	margin-right: 0;
+	width: 74.46%;	
+}
+.subgrid.columns-2 article {
+	width: 45%;
+	margin-right: 20px;
+	float: left;
+	min-height: 144px;
+	max-height: 144px;
+}
+.subgrid.columns-3 article {
+	width: 31.42%;
+	margin-right: 20px;
+	float: left;
+	min-height: 144px;
+	max-height: 144px;
+}
+.subgrid.columns-3 article:nth-of-type(3n+3) {
+	margin-right: 0;
+}
+/* column options */
+.column-options {
+	position: absolute;
+	right: 10px;	
+	margin-top: -25px;
+}
+.column-options ul { list-style: none; margin: 0; overflow: hidden; clear: both; }
+.column-options li { float: left; display: block; }
+.column-options a { display: block; float: left; }
+
+/* grid slider */
+/* Slider
+----------------------------------*/
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+
+.ui-slider-handle {
+	border: none !important;
+	background: transparent url(../img/knob.png) 0 0 no-repeat !important;
+}
+.ui-slider-handle.ui-state-hover,
+.ui-slider-handle.ui-state-focus,
+.ui-slider-handle.ui-state-active {
+border: none;
+	background: transparent url(../img/knob.png) 0 -100px no-repeat;
+}
+.ui-widget-content {
+	background: transparent url(../img/trackFill.png) 0 0 repeat-x;
+	height: 4px;
+	width: 78px;
+	margin: 10px 0 0 10px;
+/*	float: right;*/
+}
