@@ -1,0 +1,63 @@
+<?=$js_magic_checkboxes?>
+
+<script type="text/javascript">
+	jQuery(function($){
+		create_magic_checkboxes();
+	});
+</script>
+
+<script type="text/javascript"> 
+jQuery(function($){  
+    <?php if (! empty($right_crumb_msg)) : ?>
+		<?php for ($i = 0, $l= count($right_crumb_link); $i < $l; $i++) : ?>
+  			$(".heading h2").append(
+				'<span class="solspaceRightCrumb">' 	+ 
+				'(<a href="<?=$right_crumb_link[$i]?>">' 	+ 
+				'<?=$right_crumb_msg[$i]?><\/a>)<\/span>'
+			);
+		<?php endfor;?>
+  	<?php endif; ?>
+});
+</script>
+
+<style type="text/css">
+
+.solspaceRightCrumb {
+	font-size:			12px;
+	font-weight:		normal;
+	margin-left:		10px;
+}
+
+.solspaceRightCrumb a
+{
+	color: inherit;
+	background-image: url(<?php echo ee()->config->slash_item('theme_folder_url');?>solspace_themes/cp_global_images/arrow_right.gif);
+	background-repeat: no-repeat;
+	padding-left:		15px;
+	margin-left:		3px;
+	margin-right:		3px;
+}
+
+.solspaceRightCrumb a:hover
+{
+	text-decoration: underline;
+}
+
+</style>
+
+<?php if ($message != ''):?>
+	<script type="text/javascript">
+		jQuery(function($){
+			$.ee_notice('<?php echo addslashes($message);?>',{open: true, type:"success"});
+			setTimeout(function(){ $.ee_notice.destroy(); }, 3000);
+		});
+	</script>
+<?php endif;?>
+
+<?php foreach($module_menu AS $menu_item) : ?>
+	<div class="cp_button">
+		<a href="<?php echo $menu_item['link'];?>"><?php echo $menu_item['title'];?></a>
+	</div>
+<?php endforeach; ?>
+
+

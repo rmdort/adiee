@@ -1,0 +1,48 @@
+<div class="tableHeading"><?=$lang_edit_field_order?></div>
+
+<?php if ( ! empty( $fields ) ):?>
+
+<form method="post" action="<?=$form_url?>">
+	<table id="attachment-entries" class="tableBorder" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th class="tableHeadingAlt" style="width:3%;  text-align:left;">&nbsp;</th>
+				<th class="tableHeadingAlt" style="width:15%; text-align:left;"><?=$lang_name?></th>
+				<th class="tableHeadingAlt" style="width:82%;  text-align:left;"><?=$lang_order?></th>
+			</tr>
+		</thead>
+		<tbody>
+			
+<?php foreach($fields as $field):?>
+		<?php $class = $this->cycle('tableCellOne', 'tableCellTwo'); ?>
+			<tr>
+				<td class="<?=$class?>"><?=$field['count']?></td>
+				<td class="<?=$class?>"><?=$field['name']?></td>
+				<td class="<?=$class?>">			
+					<input type="input" name="field_id[<?=$field['id']?>]" 
+					   	   value="<?=$field['order']?>" size="35" 
+						   maxlength="10" class="input" style="width:15%;"/> 
+				</td>		
+			</tr>			
+<?php endforeach; ?>
+
+		</tbody>
+	</table>
+	
+	<div class='clearfix' >&nbsp;</div>
+	
+	<div class="itemWrapper">
+		<input type="submit" name="submit" value="<?=$lang_submit?>" />
+	</div>
+</form>
+
+<?php else:?>
+
+<div class="tableCellOne">
+	<div class="highlight">
+		<?=$lang_no_fields?>
+	</div>	
+</div>
+
+<?php endif;?>

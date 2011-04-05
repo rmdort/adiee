@@ -1,0 +1,63 @@
+{embed="inc/header"}
+
+
+<!-- Slideshow -->
+<div id="NlbaHero" class="clearfix">
+	
+	<ul id="Slides">
+		{exp:channel:entries channel="preferences" disable="{global-disable}" dynamic="off" limit="1"}
+		{slideshow}
+		<li>
+			<h3>{heading}</h3>
+			<p>{desc}</p>
+			<img src="{image}" alt="{heading}">
+			<p><a href="{path={switch='library-professionals|students|adults-educators|partners'}}">Read more</a></p>
+		</li>
+		{/slideshow}
+		{/exp:channel:entries}		
+	</ul>
+	<img src="{site_url}images/site/pointer.png" alt="" class="pointer" />
+	<ul class="nlbaHeroNav">
+		{exp:categories category_group_id="2" children="n"}	
+		<li><h2><a title="{category_name}" href="{path={category_url_title}}">For {category_name} <img src="{site_url}images/site/slide-pointer.png" alt=""></a></h2></li>
+		{/exp:categories}	
+		<li><h2><a href="{path=partners}">For those wishing to explore partnerships with NLBA <img src="{site_url}images/site/slide-pointer.png" alt=""></a></h2></li>
+	</ul>	
+	
+</div>
+<!-- / Slideshow -->
+
+
+<!-- Three column -->		
+<div class="split clearfix">
+		<article class="testimonials">
+			{embed="inc/testimonial"}
+		</article>
+		
+		<article>
+			<header><h4>E-learn courses</h4></header>
+			<div class="content">
+				<ul class="links">
+					{exp:query sql="SELECT A.title, A.url_title, A.entry_id as entryid FROM exp_channel_titles A, exp_category_posts B where A.channel_id=4 AND A.entry_id=B.entry_id and B.cat_id=11 ORDER BY entry_date DESC LIMIT 6"}					
+						<li><a href="{path=/}{exp:nlbaformat:getcaturl entry_id="{entryid}"} {/exp:nlbaformat:getcaturl}view/{url_title}">{title}</a></li>
+					{/exp:query}				
+				</ul>
+				<p><a href="{path=ajax/course-preview}?&file={site_url}uploads/flash/ANM_CoursePreview.swf&w=800&h=542" rel="facebox">View e-Learn demo</a></p>
+			</div>
+		</article>
+		
+		<article>
+			<header><h4>News &amp; events</h4></header>
+			<div class="content">
+				{exp:channel:entries channel="news" limit="1" disable="{global-disable}" orderby="date" sort="desc"}
+				<p><strong>{entry_date format="%d %F %Y"}</strong></p>
+				<p>{exp:eehive_hacksaw words="40" append="..."}{news-body}{/exp:eehive_hacksaw}</p>
+				<p><a href="{title_permalink=news-events/view}">Read more</a></p>
+				{/exp:channel:entries}
+			</div>
+		</article>
+
+</div>
+<!-- Three column -->			
+
+{embed="inc/footer"}

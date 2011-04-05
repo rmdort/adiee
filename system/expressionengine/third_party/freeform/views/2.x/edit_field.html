@@ -1,0 +1,88 @@
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<input type="hidden" name="field_id" value="<?=$field_id?>" />
+	<table class="mainTable padTable" style="width:100%;" 
+		   cellspacing='0' cellpadding='0' border='0'>
+		<thead>
+			<tr>
+				<th style="width:30%; text-align:left;"><?=$lang_field?></th>
+				<th style="width:70%; text-align:left;"><?=$lang_value?></th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr class="<?php echo $this->cycle('odd', 'even');?>">
+				<td>
+					
+						<label for="name"><?=$lang_field_name?></label>
+						<div class="subtext">
+							<?=$lang_field_name_info?>
+						</div>
+					
+				</td>
+				<td>
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 		type="text" size="35"
+								   name="name" 			value="<?=$name?>" 
+								   style="width:50%"	maxlength="40" />
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even');?>">
+				<td>
+						<label for="label"><?=$lang_field_label?></label>
+						<div class="subtext">
+							<?=$lang_field_label_info?>
+						</div>
+				</td>
+				<td>
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 		type="text" size="35"
+								   name="label" 		value="<?=$label?>" 
+								   style="width:50%"	maxlength="40" />
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even');?>">
+				<td>
+					<label for="field_type"><?=$lang_field_type?></label>
+				</td>
+				<td>
+					<select name="field_type">
+						<option value="text" <?=$selected_text?> ><?=$lang_text?></option>
+						<option value="textarea" <?=$selected_textarea?> ><?=$lang_textarea?></option>
+					</select>
+				</td>
+			</tr>			
+			<tr class="<?php echo $this->cycle('odd', 'even');?>">
+				<td>
+					<label for="field_order"><?=$lang_field_order?></label>
+				</td>
+				<td>
+					<input class="input" 		type="text" size="35"
+						   name="field_order" 	value="<?=$field_order?>" 
+						   style="width:5%"		maxlength="40" />
+				</td>
+			</tr>	
+			<tr class="<?php echo $this->cycle('odd', 'even');?>">
+				<td>
+					<label for="field_length"><?=$lang_field_length?></label>
+				</td>
+				<td>
+					<input class="input" 		type="text" size="35"
+						   name="field_length" 	value="<?=$field_length?>" 
+						   style="width:5%"		maxlength="40" />
+				</td>
+			</tr>		
+		</tbody>	
+	</table>
+	<p>
+		<input class="submit" type="submit" name="submit" value="<?=$lang_update?>" />
+	</p>
+</form>
+
+

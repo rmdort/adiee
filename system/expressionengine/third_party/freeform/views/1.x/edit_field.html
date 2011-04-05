@@ -1,0 +1,113 @@
+<div class="tableHeading"></div>
+
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" name="field_id" value="<?=$field_id?>" />
+	<table class="tableBorder" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th class="tableHeadingAlt" style="width:30%; text-align:left;"><?php echo $lang_edit_field; ?></th>
+				<th class="tableHeadingAlt" style="width:70%; text-align:left;">&nbsp;</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<?php $class = /*$this->cycle(*/'tableCellOne'/*, 'tableCellTwo')*/; ?>
+			<tr>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<?=$lang_field_name?></div>
+						<div class="default">
+							<?=$lang_field_name_info?>
+						</div>
+					
+				</td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 		type="text" size="35"
+								   name="name" 			value="<?=$name?>" 
+								   style="width:50%"	maxlength="40" />
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<?=$lang_field_label?></div>
+						<div class="default">
+							<?=$lang_field_label_info?>
+						</div>
+					
+				</td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 		type="text" size="35"
+								   name="label" 		value="<?=$label?>" 
+								   style="width:50%"	maxlength="40" />
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<?=$lang_field_type?>
+					</div>
+				</td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<select name="field_type">
+								<option value="text" <?=$selected_text?> ><?=$lang_text?></option>
+								<option value="textarea" <?=$selected_textarea?> ><?=$lang_textarea?></option>
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>			
+			<tr>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<?=$lang_field_order?>
+					</div>
+				</td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 		type="text" size="35"
+								   name="field_order" 	value="<?=$field_order?>" 
+								   style="width:5%"		maxlength="40" />
+						</div>
+					</div>
+				</td>
+			</tr>	
+			<tr>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<?=$lang_field_length?>
+					</div>
+				</td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 		type="text" size="35"
+								   name="field_length" 	value="<?=$field_length?>" 
+								   style="width:5%"		maxlength="40" />
+						</div>
+					</div>
+				</td>
+			</tr>		
+		</tbody>	
+	</table>
+	
+	<div class='clearfix'>&nbsp;</div>
+	
+	<div class="itemWrapper">
+		<input type="submit" name="submit" value="<?=$lang_update?>" />
+	</div>
+</form>
+
+

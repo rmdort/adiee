@@ -1,0 +1,1 @@
+git push origin master;ssh -p 1122 artminis@artminister.com "cd ~/public_html/nlba;git pull origin master"

@@ -1,0 +1,61 @@
+{preload_replace:channel="course"}
+{exp:channel:entries channel="{channel}" disable="{global-disable}" limit="1" status="not Closed" require_entry="yes"}
+{embed="inc/header" title="{title}" description="{exp:eehive_hacksaw chars="500" allow="<br>"}{course-summary}{/exp:eehive_hacksaw}"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path={segment_1}}" itemprop="url"><span itemprop="title">{segment_1_category_name}</span></a></li>
+		{if segment_2}
+			<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path={segment_1}}/{segment_2}/{segment_3}" itemprop="url"><span itemprop="title">{title}</span></a></li>
+		{/if}
+	</ul>
+	
+	<article>
+
+		<header><h1>{title}</h1></header>
+		
+		<ol class="tags">
+			{categories show_group="2"}
+				{if parent_id!=0}<li>{category_name}</li>{/if}
+			{/categories}
+			{if course-duration}<li>{course-duration}</li>{/if}
+			{categories show_group="3"}
+				<li style="background-color:#{category_color}">Format: {category_name}</li>
+			{/categories}
+			{if course-fees}<li>{course-fees}</li>{/if}
+			{if course-preview}
+				{course-preview}
+				<li class="coursePreview"><a href="{path=ajax/course-preview}/?&file={flash}&w={if width}{width}{if:else}800{/if}&h={if height}{height}{if:else}542{/if}" rel="facebox">Course Preview</a></li>
+				{/course-preview}
+			{/if}
+		</ol>
+		
+		{course-summary}
+		
+		{course-body}
+		
+		{if no_results}
+			{redirect="404"}
+		{/if}
+	
+	</article>
+
+</div>
+
+<aside id="Sidebar">
+	
+	{course-details}		
+	
+	{testimonial-module}
+	
+	{related-courses}
+	
+</aside>
+
+{/exp:channel:entries}
+
+{embed="inc/footer"}

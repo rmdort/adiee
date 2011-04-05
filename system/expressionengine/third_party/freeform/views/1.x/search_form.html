@@ -1,0 +1,27 @@
+<form method="post" id="search" name="search" action="<?php echo $form_url?>">
+	<div class="hidden"><input type="hidden" value="14acf1bd5da74965091efabc28e6863502f87e5c" name="XID"></div>
+
+
+<div class="itemWrapper">Filter by: 
+<select class="select" name="form_name">
+<option value="">Form Name</option>
+<option value="">All Entries</option>
+</select>
+Status:
+<select class="select" name="status">
+<option value="">Status</option>
+<option value="open">Open</option>
+<option value="closed">Closed</option>
+</select>
+ Show empty columns? <input type="radio" value="yes" name="show_empties" class="radio">
+Yes<input type="radio" checked="checked" value="no" name="show_empties" class="radio">
+No
+<input type="submit" value="Search" class="submit">
+</div>
+</form>
+
+
+
+<div class="tableCellOne">
+<div class="highlight">There are currently no entries.</div>
+</div>

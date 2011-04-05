@@ -1,0 +1,44 @@
+{embed="inc/header" url_title="{segment_3}"}
+
+<!-- Slideshow -->
+<div id="Slideshow">
+	<ul id="Slides">
+		<li><a href="#">Slide 1</a></li>
+		<li><a href="#">Slide 2</a></li>
+		<li><a href="#">Slide 3</a></li>
+	</ul>
+	<ul class="pager">
+		
+	</ul>
+</div>
+<!-- / Slideshow -->
+
+		
+{exp:channel:entries channel="courses" status="Open|Recommended" disable="{global-disable}" orderby="date" sort="desc" limit="1"}
+
+{embed="inc/print-icon"}
+
+<ul id="Crumbs">
+	<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+	<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path=courses}" itemprop="url"><span itemprop="title">Courses</span></a></li>
+	{categories}
+			<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{exp:category_url parent_id="{parent_id}" category_url_title="{category_url_title}" category_id="{category_id}" pathinfo="/courses/for/"}"  itemprop="url"><span itemprop="title">{category_name}</span></a></li>
+	{/categories}
+</ul>
+
+	<h1>{title}</h1>
+	{course-summary}
+	
+	{course-body}
+	
+	{if prerequisites}
+	<h2>Pre-requisites</h2>
+	{prerequisites}
+	{/if}
+	
+{/exp:channel:entries}
+		
+		
+
+
+{embed="inc/footer"}

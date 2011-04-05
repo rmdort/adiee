@@ -1,0 +1,24 @@
+<?php echo $this->view('header.html');?>
+	
+	<form action='<?php echo $form_url;?>' method='post'>
+
+		<div class='alertHeading' ><?php echo $LANG->line('update_freeform_module');?></div>
+		<div>
+			<input type="hidden" name="run_update" value="y" />
+		</div>
+
+		<div class='box' >
+
+			<div class='itemWrapper' >
+				<p><strong><?php echo $LANG->line('freeform_update_message'); ?></strong></p>
+			</div>
+
+			<div class='itemWrapper' >
+				<input  type='submit' class='submit' value='<?php echo $LANG->line('update');?>'  />
+			</div>
+			
+		</div>
+		
+	</form>
+	
+<?php echo $this->view('footer.html'); ?>

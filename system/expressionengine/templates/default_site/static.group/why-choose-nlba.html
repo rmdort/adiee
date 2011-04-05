@@ -1,0 +1,29 @@
+{exp:channel:entries channel="pages" disable="{global-disable}" limit="1"}
+{embed="inc/header" title="{title}"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<!-- Breadcrumbs -->
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li><a href="{path={segment_1}}" itemtype="http://data-vocabulary.org/Breadcrumb" itemprop="url">{segment_1_category_name}</a></li>		
+		<li itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><a href="{page_url}" itemprop="url"><span itemprop="title">Why Choose NLBA</span></a></li>
+	</ul>
+	<!-- / Breadcrumbs -->
+
+
+	<h1>Why Choose NLBA</h1>
+
+	{pages-body}			
+
+</div>
+
+<aside id="Sidebar">
+	{embed="inc/sidebar"}
+</aside>
+
+{/exp:channel:entries}
+
+{embed="inc/footer"}

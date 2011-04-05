@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>ExpressionEngine | <?=$page_title?></title>
+
+<meta http-equiv='content-type' content='text/html; charset=<?php echo ee()->config->item('charset'); ?>' >
+<meta http-equiv='expires' content='-1' >
+<meta http-equiv='expires' content='Mon, 01 Jan 1970 23:59:59 GMT' >
+<meta http-equiv='pragma' content='no-cache' >
+
+<style type='text/css'>
+
+<?=$this->fetch_stylesheet();?>
+
+<?=ee()->cp->manual_css;?>
+
+</style>
+
+<?=ee()->cp->_menu_js();?>
+<?=ee()->cp->_global_javascript();?>
+<?=ee()->cp->extra_header;?>
+
+<?=$js_magic_checkboxes?>
+
+<script type="text/javascript" src="<?php echo ee()->config->item('theme_folder_url');?>solspace_themes/jquery/jquery.corner.js"></script>
+
+<script type="text/javascript"> 
+
+	function styleswitch(link)
+	{                 
+		if (document.getElementById(link).className == 'altTabs')
+		{
+			document.getElementById(link).className = 'altTabsHover';
+		}
+	}
+
+	function stylereset(link)
+	{                 
+		if (document.getElementById(link).className == 'altTabsHover')
+		{
+			document.getElementById(link).className = 'altTabs';
+		}
+	}
+
+
+	jQuery(function($){
+		// Slide Out any Module Message After 3.14 seconds
+		$('#module_message').animate({opacity: 1.0}, 3140).slideUp('slow', function()
+		{
+			$(this).remove();
+		});
+	});
+
+</script>
+</head>
+
+<body onload="create_magic_checkboxes();">
+
+<?=ee()->cp->page_header();?>
+<?=ee()->cp->page_navigation();?>
+
+<div id='breadcrumbNoLine'>
+	<table border='0'  cellspacing='0' cellpadding='0' style='width:100%;' >
+		<tr>
+			<td class='crumbPad' ><span class='crumblinks'><?=$page_crumb;?></span></td>
+			<?php if ( isset($right_crumb_link) AND isset($right_crumb_msg) ): ?>
+				<?php for ($i = 0, $l= count($right_crumb_link); $i < $l; $i++) : ?>
+					<td  class='breadcrumbRight'  style='width:200px;' valign='bottom' align='right'>
+						<a href="<?php echo $right_crumb_link[$i]; ?>">
+							<span onmouseout="navCrumbOff();" 
+								  onmouseover="navCrumbOn();" 
+								  onclick="navjump(this.href); this.blur();" 
+								  id="rcrumb<?php echo ($i > 0) ? $i + 1 : '';?>" 
+								  class="crumblinksR"><?php echo $right_crumb_msg[$i]; ?></span>
+						</a>
+					</td>
+				<?php endfor;?>
+			<?php else: ?>	
+				<td  class='breadcrumbRight'  style='width:200px;' valign='bottom' align='right'>
+					&nbsp;
+				</td>
+			<?php endif; ?>
+		</tr>
+	</table>
+</div>
+
+<div id='contentNB'>
+
+	<!-- Output Message from Redirect, if Any -->
+	
+	<?php if ($message != '') : ?>
+	
+		<div class='defaultCenter' id="module_message" >
+			<div class="box">
+				<strong class="menuHeading"><?=$message?></strong>
+			</div>
+		</div>
+	
+	<?php endif; ?>
+
+	<?php if (sizeof($module_menu) > 0) : ?>
+		<table style='width:100%;'  cellspacing='0'  cellpadding='0'  border='0' >
+			<tr>
+				<?php $menu_count = 0; ?>
+				<?php foreach ($this->equalize_menu($module_menu) as $id => $item) : ?>	
+					<?php $menu_count++; ?>
+					<td>
+						<a href='<?=$item['link']?>' >
+							<div class="tab <?php 
+								echo ($module_menu_highlight == $id) ? 'altTabSelected' : 'altTabs';?> <?php 
+								echo (sizeof($module_menu) == $menu_count) ? 'lastTab' : '';?>" 
+								id="<?php echo $id;?>"  
+								onclick="navjump('<?php echo $id;?>');" 
+								onmouseover="styleswitch('<?=$id?>');" 
+								onmouseout="stylereset('<?=$id?>');">
+								<span><?=$item['title']?></span>
+							</div>
+						</a>
+					</td>
+				<?php endforeach; ?>
+			</tr>
+		</table>
+	<?php endif; ?>
+	
+	<div class="clearfix">&nbsp;</div>

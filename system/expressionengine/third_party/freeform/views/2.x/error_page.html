@@ -1,0 +1,15 @@
+<?php echo $this->load->view('header.html');?>
+<div class="clear_left"></div>	
+	<h4 class="alertHeadingCenter">
+		<?php echo $this->lang->line('error');?>
+	</h4>
+	<br/>
+	<div class='defaultCenter' >
+		<div class="box">
+			<strong><?=$error_message?></strong>
+				<br /><br />
+			<strong><a href='javascript:history.go(-1)' style='text-transform:uppercase;'>&#171; <?=$this->lang->line('back')?></a></strong>
+		</div>
+	</div>
+	
+<?php echo $this->load->view('footer.html'); ?>

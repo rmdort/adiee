@@ -1,0 +1,32 @@
+/* @Packager.Header
+<FileDescription>
+	Styles used by the dialog boxes.
+</FileDescription>
+<Author name="Frederico Knabben" email="cksource.com" />
+*/
+
+#qu,
+.FCKUploadArea div, .FCKSettingsArea div { border-left: 4px solid #c1c8ce; }
+.FCKUploadArea div div, .FCKSettingsArea div div { border-left: none; }
+
+.FCKUploadArea, .FCKSettingsArea { background: #ecf1f4; }
+
+body { margin: 0px; padding: 10px; }
+body, td, input, select, textarea { font-size: 11px; font-family: Arial, Lucida Grande, Verdana, Geneva, Sans-serif; }
+.PopupBody { margin: 0px; padding: 0px; }
+.PopupTitle { font-weight: bold; font-size: 14px; color: #424354; padding: 5px 10px; }
+.sidebar .PopupTitle { padding-top: 15px; }
+.PopupButtons { border-width: 1px 0 1px 4px; border-style: solid; border-color: #b6c0c2 #000 #c0c7cf #c1c8ce !important; padding: 5px 10px; background: #d0d7df url(../../../../ckeditor/skins/wygwam2/images/dialog_footer_bg.png) repeat-x; }
+.Button { display: inline-block; border: none; padding: 2px 10px; width: auto; text-align: center; color: #fff; font-family: 'Lucida Grande', sans-serif; font-size: 11px; line-height: 14px; background: #F72A58 url(../../../../ckeditor/skins/wygwam2/images/dialog_button_bg.png) repeat-x 0 100%; cursor: pointer;
+	border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; }
+.Button:hover { opacity: 1; }
+.DarkBackground { background-color: #c1c8ce; }
+.LightBackground { background-color: #e4eaf1; }
+.PopupTitleBorder { border-bottom: #c1c8ce 1px solid; }
+.PopupTabArea { background-color: #c1c8ce; }
+.PopupTabEmptyArea { padding-left: 10px; border-bottom: #c1c8ce 1px solid; }
+.PopupTab, .PopupTabSelected { border-right: #c1c8ce 1px solid; border-top: #c1c8ce 1px solid; border-left: #c1c8ce 1px solid; padding-right: 5px; padding-left: 5px; padding-bottom: 3px; padding-top: 3px; color: #737357; }
+.PopupTab { margin-top: 1px; border-bottom: #c1c8ce 1px solid; cursor: pointer; cursor: hand; }
+.PopupTabSelected { font-weight: bold; cursor: default; padding-top: 4px; border-bottom: #f1f1e3 1px solid; background-color: #f1f1e3; }
+.PopupSelectionBox { background: #c1c8ce !important; cursor: pointer; cursor: hand; }
+.FCKSelectedBox { background: #c1c8ce !important; border-color: #8491a3 !important; }

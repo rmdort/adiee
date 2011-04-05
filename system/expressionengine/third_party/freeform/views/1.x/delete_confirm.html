@@ -1,0 +1,31 @@
+<div class="tableHeading"></div>
+
+<form action="<?=$form_url?>" method="post">
+
+	<table id="field-entries" class="tableBorder" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<td class="tableHeadingAlt"><?=$lang_confirm_title?></td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td class="tableCellOne"><?=$lang_confirm_delete?><br/><br/><div class="defaultBold"><?=$lang_no_undo?></div></td>
+			</tr>
+		</thead>
+	</table>	
+		
+	<div class="hidden">
+		<?php foreach($hidden_inputs as $data): ?>
+			<input type="hidden" name="<?=$data['name']?>" value="<?=$data['value']?>" />
+		<?php endforeach;?>
+	</div>
+	
+	<div class="clearfix">&nbsp;</div>
+	
+	<div style="margin-left:-10px;">
+		<input type="submit" name="submit" value="<?=$lang_delete?>" />
+	</div>
+</form>

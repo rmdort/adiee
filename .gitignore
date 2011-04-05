@@ -1,0 +1,42 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+nbproject
+thumbs.db
+
+# Dreamweaver added files
+_notes
+dwsync.xml
+
+# Folders to ignore
+.hg
+.svn
+publish
+.idea
+
+# files
+build/buildinfo.properties
+system/expressionengine/config/config.php
+system/expressionengine/config/database.php
+system/expressionengine/cache/*
+sized/
+_thumbs/
+images/captchas*
+system/error_log
+images/sized/*
+system/expressionengine/cache/ee_version/current_version
+*/expressionengine/cache/*
+bk/*

@@ -1,0 +1,89 @@
+{exp:channel:entries channel="pages" disable="{global-disable}" limit="1"}
+{embed="inc/header" title="{title}"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<!-- Breadcrumbs -->
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><a href="{path={segment_1}}" itemprop="url"><span itemprop="title">{title}</span></a></li>
+	</ul>
+	<!-- / Breadcrumbs -->
+
+
+	<h1>{title}</h1>
+
+	{pages-body}		
+	
+	{if entry_id=="25"}
+	
+	{exp:email:contact_form user_recipients="false" recipients="admin@example.com" charset="utf-8" form_class="forms"} 
+	<fieldset>
+	<p><label for="from">Your Email:</label>
+			<input type="text" id="from" name="from" size="40" maxlength="35" value="{member_email}" />
+	</p> 
+	<p>
+		<label for="subject">Subject:</label> 
+		<input type="text" id="subject" name="subject" size="40" value="Contact Form" />
+	</p> 
+	<p>
+		<label for="message">Message:</label>
+		<textarea id="message" name="message" rows="12" cols="40"></textarea>
+	</p> 
+	<p>
+		<input name="submit" type='submit' class="submit orange" value='Send' />
+	</p> 
+	</fieldset>
+	{/exp:email:contact_form}
+
+		
+	{/if}
+
+</div>
+
+<aside id="Sidebar">
+	{if entry_id=="25"}
+	<div id="GMap">
+		
+	</div>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>			
+		<script type="text/javascript">
+			var myLatlng = new google.maps.LatLng(1.333674,103.850445),
+	    myOptions = {
+	      zoom: 16,
+	      center: myLatlng,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    },
+	    map = new google.maps.Map(document.getElementById("GMap"), myOptions),
+			contentString = '<div id="content">'+
+			        '<p><strong>National Library Board Academy</strong></p>'+
+							'<p>Toa Payoh Public Library, Level 3<br>6 Toa Payoh Central<br>Singapore 319191</p>'+
+							'<p>Tel: +65 6354 5131 / 5123 / 5060 <br>Email: <a href="mailto:nlbacademy@nlb.gov.sg">nlbacademy@nlb.gov.sg</a></p>'+
+			        '</div>',
+
+		 infowindow = new google.maps.InfoWindow({
+		        content: contentString
+		    }),
+
+	   marker = new google.maps.Marker({
+	       position: myLatlng, 
+	       map: map,
+	       title:"National Library Board Academy",
+				icon:'/images/site/marker-library.png'
+	   });
+
+		google.maps.event.addListener(marker, 'click', function() {
+		      infowindow.open(map,marker);
+		});
+
+
+		</script>
+		
+	{/if}
+</aside>
+
+{/exp:channel:entries}
+
+{embed="inc/footer"}

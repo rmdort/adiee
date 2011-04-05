@@ -1,0 +1,110 @@
+<h3 class="odd"><?php echo $lang_template_desc; ?></h3>
+<p class="notice">
+	<span class="bold"><?=$lang_available_variables?>:</span><br/><br/>
+	<?php foreach( $highlight_vars as $highlight ):?>
+		{<?=$highlight?>}<br/>
+	<?php endforeach;?>
+		<?=$lang_attachments_pair?>
+</p>
+<br/>
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<input type="hidden" name="template_id" value="<?=$template_id?>" />
+	<table class="mainTable padTable" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th style="width:30%; text-align:left;"><?=$lang_field?></th>
+				<th style="width:70%; text-align:left;"><?=$lang_value?></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="template_name"><?=$lang_template_name?></label>
+					<div class="subtext">
+						<?=$lang_template_name_info?>
+					</div>	
+				</td>
+				<td>
+					<input type="text" name="template_name" value="<?=$template_name?>" 
+						   size="100"  maxlength="100" 		class="input" style="width:75%;" />
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="template_label"><?=$lang_template_label?></label>
+					<div class="subtext">
+						<?=$lang_template_label_info?>
+					</div>	
+				</td>
+				<td>
+					<input type="text" name="template_label" value="<?=$template_label?>" 
+						   size="100"  maxlength="100" 		class="input" style="width:75%;" />
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="data_from_name"><?=$lang_email_from_name?></label>
+				</td>
+				<td>
+					<input type="text" name="data_from_name" value="<?=$data_from_name?>" 
+						   size="100"  maxlength="100" 		class="input" style="width:75%;" />
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="data_from_email"><?=$lang_email_from_email?></label>
+				</td>
+				<td>
+					<input type="text" name="data_from_email" value="<?=$data_from_email?>" 
+						   size="100"  maxlength="100" 		class="input" style="width:75%;" />
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="data_title"><?=$lang_email_subject?></label>
+				</td>
+				<td>
+					<input type="text" name="data_title" value="<?=$data_title?>" 
+						   size="100"  maxlength="100" 		class="input" style="width:75%;" />
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="wordwrap"><?=$lang_wordwrap?></label>
+				</td>
+				<td>
+					<input type="radio" name="wordwrap" value="y" <?=$wordwrap_checked_y?> />
+					<?=$lang_yes?>
+					<input type="radio" name="wordwrap" value="n" <?=$wordwrap_checked_n?>  />
+					<?=$lang_no?>
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="html"><?=$lang_html?></label>	
+				</td>
+				<td>
+					<input type="radio" name="html" value="y" <?=$html_checked_y?> />
+					<?=$lang_yes?>
+					<input type="radio" name="html" value="n" <?=$html_checked_n?>  />
+					<?=$lang_no?>
+				</td>	
+			</tr>
+			<tr class="<?php echo $this->cycle('odd', 'even'); ?>">
+				<td>
+					<label for="template_data"><?=$lang_email_message?></label>
+				</td>
+				<td>
+					<textarea 
+						   class="input" cols="90" rows="20"
+						   name="template_data" style="width:50%"><?=$template_data?></textarea>
+				</td>	
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		<input class="submit" type="submit" name="submit" value="<?=$form_submit?>" />
+	</p>
+</form>	

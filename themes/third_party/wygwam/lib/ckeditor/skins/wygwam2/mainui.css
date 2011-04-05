@@ -1,0 +1,210 @@
+/*
+Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.html or http://ckeditor.com/license
+*/
+
+.cke_skin_wygwam2
+{
+	display: block;
+}
+
+/* Main editor only settings. */
+span.cke_skin_wygwam2
+{
+	border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 4px;
+	border: 1px solid #b6c0c2;
+}
+
+.cke_skin_wygwam2 span.cke_browser_webkit,
+.cke_skin_wygwam2 span.cke_browser_gecko18
+{
+	display: block;
+}
+
+.cke_skin_wygwam2 .cke_wrapper
+{
+	border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 3px;
+	display: block;
+	/* IE Quirks: editor chrome overflow horizontally without an explicit width. */
+	_display: inline-block;
+}
+
+.cke_shared .cke_skin_wygwam2 .cke_wrapper
+{
+	padding-bottom: 0;
+}
+
+.cke_skin_wygwam2 .cke_browser_ie6 .cke_wrapper,
+.cke_skin_wygwam2 .cke_browser_iequirks .cke_wrapper
+{
+	background-image: none;
+}
+
+.cke_skin_wygwam2 .cke_editor
+{
+	display: table;
+	width: 100%;
+	margin: 0 !important; /* overrides main CP styles */
+}
+
+.cke_skin_wygwam2 .cke_editor td
+{
+	border: none; /* overrides main CP styles */
+}
+
+.cke_skin_wygwam2 .cke_editor td:last-child
+{
+	border-right: none !important;
+}
+
+.cke_skin_wygwam2 .cke_top
+{
+	padding: 5px 2px 2px 5px;
+	border-bottom: 1px solid #bbb !important;
+	background: #e2e2e2 !important; /* !important overrides main CP styles */
+	background: rgba(0,0,0,0.06) !important; /* !important overrides main CP styles */
+}
+
+.cke_skin_wygwam2 .ltr .cke_browser_ie iframe
+{
+	margin-right: -10px;
+}
+
+.cke_skin_wygwam2 .rtl .cke_browser_ie iframe
+{
+	margin-left: -10px;
+}
+
+.cke_skin_wygwam2 .cke_browser_opera .cke_editor.cke_skin_wygwam2 .cke_resizer
+{
+	display: table;
+}
+
+.cke_skin_wygwam2 .cke_contents
+{
+	margin: 5px;
+	padding: 0; /* overrides main CP styles */
+}
+
+.cke_skin_wygwam2 .cke_hc .cke_contents
+{
+	border: 1px solid black;
+}
+
+.cke_skin_wygwam2 .cke_contents iframe
+{
+	display: block;
+	background-color: #fff;
+}
+
+.cke_skin_wygwam2 .cke_focus
+{
+	outline: auto 5px -webkit-focus-ring-color;
+}
+
+.cke_skin_wygwam2 textarea.cke_source
+{
+	font-family: 'Courier New' , Monospace;
+	font-size: small;
+	background-color: #fff;
+	white-space: pre;
+}
+
+.cke_skin_wygwam2 .cke_browser_iequirks textarea.cke_source
+{
+	/* For IE6+Quirks only */
+	_white-space: normal;
+}
+
+.cke_skin_wygwam2 .cke_wrapper .cke_bottom
+{
+	border-top: 1px solid #bbb !important;
+	padding: 2px 0;
+	background: #e2e2e2 !important; /* !important overrides main CP styles */
+	background: rgba(0,0,0,0.06) !important; /* !important overrides main CP styles */
+}
+
+.cke_skin_wygwam2 .cke_resizer
+{
+	width: 10px;
+	height: 10px;
+	margin: 5px 2px 0 0;
+	display: block;
+	float: right;
+	background: url(images/resizer_bg.gif) no-repeat 1px 1px;
+	cursor: se-resize;
+}
+
+.cke_skin_wygwam2 .cke_rtl .cke_resizer
+{
+	cursor: sw-resize;
+	/* resizer_rtl.gif*/
+	background-position: 0 -1455px;
+	float: left;
+}
+
+.cke_skin_wygwam2 .cke_resizer_horizontal,
+.cke_skin_wygwam2 .cke_rtl .cke_resizer_horizontal
+{
+	cursor: e-resize;
+}
+
+.cke_skin_wygwam2 .cke_resizer_vertical,
+.cke_skin_wygwam2 .cke_rtl .cke_resizer_vertical
+{
+	cursor: n-resize;
+}
+
+.cke_skin_wygwam2 .cke_maximized
+{
+	background: #fff;
+}
+
+.cke_skin_wygwam2 .cke_maximized .cke_resizer
+{
+	display: none;
+}
+
+.cke_skin_wygwam2 .cke_browser_ie6 .cke_contents textarea,
+.cke_skin_wygwam2 .cke_browser_ie7 .cke_contents textarea
+{
+	position: absolute;
+}
+
+.cke_skin_wygwam2 .cke_browser_ie.cke_browser_quirks .cke_contents iframe
+{
+	position: absolute;
+	top: 0;
+}
+
+.cke_skin_wygwam2 .cke_browser_ie6 .cke_editor,
+.cke_skin_wygwam2 .cke_browser_ie7 .cke_editor
+{
+	display: inline-block;
+}
+
+.cke_skin_wygwam2 .cke_browser_ie6 .cke_editor,
+.cke_shared .cke_skin_wygwam2 .cke_browser_ie7 .cke_wrapper
+{
+	padding-bottom: 5px;
+}
+
+/* All voice labels are not displayed. */
+.cke_skin_wygwam2 .cke_voice_label
+{
+	display: none;
+}
+
+.cke_skin_wygwam2 legend.cke_voice_label
+{
+	display: none;
+}
+
+.cke_skin_wygwam2 .cke_browser_ie legend.cke_voice_label
+{
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}

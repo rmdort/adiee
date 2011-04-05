@@ -1,0 +1,8 @@
+.ff-ft div.wygwam { margin: 5px 14px 15px 0; } /* EE1 */
+.publish_field div.wygwam { margin: 11px 0 0; } /* EE2 */
+
+iframe.wygwam { border: 1px solid #bbb; width: 100%; background: #fff;
+	opacity: 0.7; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70);
+	border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; }
+
+iframe.wygwam:hover { opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); }

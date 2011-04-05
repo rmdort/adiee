@@ -1,0 +1,36 @@
+<div class="tableHeading"><?=$lang_preferences?></div>
+
+<form method="post" action="<?=$form_url?>">
+	<table id="preferences" class="tableBorder" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th class="tableHeadingAlt" style="width:40%;  text-align:left;"><?=$lang_preference?></th>
+				<th class="tableHeadingAlt" style="width:60%; text-align:left;"><?=$lang_value?></th>
+			</tr>
+		</thead>
+		<tbody>
+<?php foreach($pref_data as $pref):?>
+			<?php $class = $this->cycle('tableCellOne', 'tableCellTwo'); ?>
+			<tr>
+				<td class="<?=$class?>"><?=$pref['lang_desc']?></td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input 	class="input" 				type="text" size="35"
+							   		name="<?=$pref['name']?>" 	value="<?=$pref['value']?>" 
+							   		style="width:50%"			maxlength="100" />
+						</div>
+					</div>
+				</td>
+			</tr>
+<?php endforeach; ?>	
+		</tbody>	
+	</table>
+
+<div class='clearfix' >&nbsp;</div>
+
+	<div class="itemWrapper">
+		<input type="submit" name="submit" value="<?=$lang_save_preferences?>" />
+	</div>
+</form>

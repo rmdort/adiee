@@ -1,0 +1,58 @@
+{embed="inc/header" title="Search results for {exp:search:keywords}"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<!-- Breadcrumbs -->
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><a href="{path=search}" itemprop="url"><span itemprop="title">Search</span></a></li>
+	</ul>
+	<!-- / Breadcrumbs -->
+
+
+	<h1>Search results for {exp:search:keywords}</h1>
+
+	<ol class="searchresults">		
+	
+	{exp:search:search_results}
+	
+	<li>
+		{if channel_short_name=="course"}
+			<h2><a href="{path=/}{exp:nlbaformat:getcaturl entry_id="{entry_id}"} {/exp:nlbaformat:getcaturl}view/{url_title}">{title}</a></h2>
+			<p>{exp:eehive_hacksaw words="40" append="..." allow="<br />"}{course-summary}{/exp:eehive_hacksaw}</p>
+		{/if}
+		{if channel_short_name=="trainers"}
+			<h2><a href="{title_permalink=about/trainers}">{title}</a></h2>
+			<p>{exp:eehive_hacksaw words="40" append="..." allow="<br />"}{trainer-bio}{/exp:eehive_hacksaw}</p>
+		{/if}
+		
+		{if channel_short_name=="about"}
+			<h2><a href="{title_permalink=about}">{title}</a></h2>
+			<p>{exp:eehive_hacksaw words="40" append="..." allow="<br />"}{pages-body}{/exp:eehive_hacksaw}</p>			
+		{/if}
+		
+	</li>
+
+	{/exp:search:search_results}
+	</ol>
+
+	</table>
+
+	
+	{if paginate}
+
+	<div class='paginate'>
+	<span class='pagecount'>{page_count}</span>&nbsp; {paginate}
+	</div>
+
+	{/if}
+
+</div>
+
+<aside id="Sidebar">
+</aside>
+
+
+{embed="inc/footer"}

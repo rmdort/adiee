@@ -1,0 +1,45 @@
+/**
+ *
+ * This just fixes some issues with IE
+ *
+ */
+
+#breadCrumb {
+	border-bottom:		1px solid #efefef;
+	height: 28px;
+}
+ 
+#publish_tab .publish_textarea textarea, .publish_input input {
+	width:				99%;
+}
+#mainContent #showToolbarLink {
+	margin-right: 		24px;
+}
+
+#mainMenu {position:relative;z-index:999;}
+ 
+.heading span.msg_open_close {
+	position:absolute;
+	right:15px;
+	top:10px;
+}
+
+#mainContent #showToolbarLink {
+	position:relative;
+}
+
+img#showToolbarImg {
+	top:0;
+	right:-20px;
+}
+
+img#hideToolbarImg {
+	top:0;
+	right:-20px;
+}
+
+/* Template Search */
+
+div.search {
+	width: 210px;
+}

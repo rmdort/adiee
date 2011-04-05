@@ -1,0 +1,91 @@
+<div class="tableHeading"><?php echo $lang_edit_entry; ?></div>
+
+<form method="post" action="<?=$form_url?>" style=" padding:0px; margin:0;">
+	<input type="hidden" name="entry_id" value="<?=$entry_id?>" />
+	<table class="tableBorder" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th class="tableHeadingAlt" style="width:30%; text-align:left;"><?=$lang_field?></th>
+				<th class="tableHeadingAlt" style="width:70%; text-align:left;"><?=$lang_value?></th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<?php $class = /*$this->cycle(*/'tableCellOne'/*, 'tableCellTwo')*/; ?>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_entry_id?></div></td>
+				<td class="<?=$class?>"><div><?=$entry_id?></div></td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_group_title?></div></td>
+				<td class="<?=$class?>"><div><?=$group_title?></div></td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_screen_name?></div></td>
+				<td class="<?=$class?>"><div><?=$screen_name?></div></td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_ip_address?></div></td>
+				<td class="<?=$class?>"><div><?=$ip_address?></div></td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_entry_date?></div></td>
+				<td class="<?=$class?>"><div><?=$entry_date?></div></td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_edit_date?></div></td>
+				<td class="<?=$class?>"><div><?=$edit_date?></div></td>
+			</tr>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$lang_status?></div></td>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<select name="status">
+								<option value="open" <?=$status_open_selected?>><?=$lang_open?></option>
+								<option value="closed" <?=$status_closed_selected?>><?=$lang_closed?></option>
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+		
+<?php foreach( $fields as $key => $value ): ?>
+	<?php if( $show_empties OR isset( $filled[ $key ] ) ): ?>
+			<tr>
+				<td class="<?=$class?>"><div class="defaultBold"><?=$value['label']?></div></td>
+		<?php if( $value['type'] == 'text' ): ?>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<input class="input" 	type="text" size="35"
+								   name="<?=$key?>" value="<?=$value['data']?>" 
+								   style="width:75%" maxlength="<?=$value['length']?>" />
+						</div>
+					</div>
+				</td>
+		<?php else:?>
+				<td class="<?=$class?>">
+					<div class="defaultBold">
+						<div class="itemWrapper">
+							<textarea 
+								   class="textarea" cols="90" 
+								   rows="6"   		name="<?=$key?>" 
+								   style="width:75%"><?=$value['data']?></textarea>
+						</div>
+					</div>
+				</td>
+		<?php endif;?>
+			</tr>				
+	<?php endif;?>
+<?php endforeach;?>			
+		</tbody>	
+	</table>
+	
+	<div class="clearfix">&nbsp;</div>
+	
+	<div class="itemWrapper" style="margin:0 0 0 -10px; padding:0px">
+		<input type="submit" name="submit" value="<?=$lang_update?>" />
+	</div>
+</form>

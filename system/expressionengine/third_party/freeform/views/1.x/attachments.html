@@ -1,0 +1,66 @@
+<div class="tableHeading"><?=$lang_attachments?></div>
+
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" value="<?=$pref_id?>" />
+	<table id="attachment-entries" class="tableBorder" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th class="tableHeadingAlt" style="width:3%;  text-align:left;">&nbsp;</th>
+				<th class="tableHeadingAlt" style="width:15%; text-align:left;">
+					<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;
+					<?=$lang_delete?>
+				</th>
+				<th class="tableHeadingAlt" style="width:15%; text-align:left;"><?=$lang_filename?></th>
+				<th class="tableHeadingAlt" style="width:5%; text-align:left;"><?=$lang_filesize?></th>
+				<th class="tableHeadingAlt" style="width:20%; text-align:left;"><?=$lang_date?></th>
+				<th class="tableHeadingAlt" style="width:42%; text-align:left;"><?=$lang_emailed?></th>
+			</tr>
+		</thead>
+		
+		<tbody>
+<?php foreach($attachments as $attachment):?>
+			<?php $class = $this->cycle('tableCellOne', 'tableCellTwo'); ?>
+			<tr>
+				<td class="<?=$class?>"><?=$attachment['count']?></td>
+				<td class="<?=$class?>">			
+					<input type="checkbox" name="toggle[]" 
+					   	   id="delete_box_<?=$attachment['id']?>" value="<?=$attachment['id']?>"/>
+				</td>
+				<td class="<?=$class?>">
+			<?php if ( $do_link ) :?>
+					<a href="<?=$attachment['download_url']?>"><?=$attachment['filename']?></a>
+			<?php else:?>				
+					<?=$attachment['filename']?>
+			<?php endif;?>						
+				</td>
+				<td class="<?=$class?>"><?=$attachment['filesize']?></td>
+				<td class="<?=$class?>"><?=$attachment['date']?></td>
+				<td class="<?=$class?>"><?=$attachment['emailed']?></td>				
+			</tr>			
+<?php endforeach; ?>	
+		</tbody>	
+		<?php $class = $this->cycle('tableCellOne', 'tableCellTwo'); ?>
+		<tfoot>
+			<tr>
+				<td class="<?=$class?>">&nbsp;</td>
+				<td class="<?=$class?>">
+					<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;
+					<strong><?=$lang_delete?></strong>
+				</td>
+				<td class="<?=$class?>">&nbsp;</td>
+				<td class="<?=$class?>">&nbsp;</td>
+				<td class="<?=$class?>">&nbsp;</td>
+				<td class="<?=$class?>">&nbsp;</td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<div class="clearfix">&nbsp;</div>
+	
+	<div class="itemWrapper" style="margin:0 0 0 -10px; padding:0px">
+		<input type="submit" name="submit" value="Delete" />
+	</div>
+</form>
+
+<script type="text/javascript">create_magic_checkboxes('attachment-entries');</script>

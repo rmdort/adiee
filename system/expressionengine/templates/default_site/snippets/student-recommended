@@ -1,0 +1,8 @@
+<li>
+	<a href="{path={segment_1}/view/{url_title}}">
+		{exp:imgsizer:size width="192" height="122" src="{exp:nlbaformat:parsefile}{url}{/exp:nlbaformat:parsefile}" parse="inward"}
+		<img src="{sized}" alt="{title}">
+		{/exp:imgsizer:size}
+	<h2>{title}</h2>
+	</a>
+</li>

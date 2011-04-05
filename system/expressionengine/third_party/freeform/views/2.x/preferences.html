@@ -1,0 +1,27 @@
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<table id="preferences" class="mainTable padTable" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th style="width:40%; text-align:left;"><?=$lang_preference?></th>
+				<th style="width:60%; text-align:left;"><?=$lang_value?></th>
+			</tr>
+		</thead>
+		<tbody>
+<?php foreach($pref_data as $pref):?>
+			<?php $class = $this->cycle('odd', 'even'); ?>
+			<tr class="<?=$class?>">
+				<td><label for="<?=$pref['name']?>"><?=$pref['lang_desc']?></label></td>
+				<td>
+					<input 	class="input" 				type="text" size="35"
+					   		name="<?=$pref['name']?>" 	value="<?=$pref['value']?>" 
+					   		style="width:50%"			maxlength="100" />
+				</td>
+			</tr>
+<?php endforeach; ?>	
+		</tbody>	
+	</table>
+
+	<p>	<input type="submit" class="submit" name="submit" value="<?=$lang_save_preferences?>" /></p>
+</form>

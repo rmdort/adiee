@@ -1,0 +1,43 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Front end Developer: Vinay m
+	Information Architecture: Maish Nichani
+	Designer : Darwin Ng
+  Site: Artminister.com
+  Twitter: @rmdort
+  Location: Singapore
+
+/* THANKS */
+  Nor Azzah NLBA
+	Stacy NLBA
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery
+  Software: Expression Engine, Textmate, Photoshop
+  
+
+/* things required */
+
+Libr pro -> ACLIS content
+				-> Professional Diploma in Library management and information services
+				
+Students -> Course categorization for student levels (pri, sec, ter)
+
+Adults -> Course categorization for adult levels
+
+Workshops -> Other courses content? - Maish
+
+Testimonials -> Categorized content - Azzah
+
+News & Events -> Categorized content - 2 channels
+
+Announcements - 
+
+Useful Links -> Content 
+
+Key announcements 
+

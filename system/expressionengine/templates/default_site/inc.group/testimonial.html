@@ -1,0 +1,16 @@
+<!-- Testimonials -->
+	<header><h4>Testimonials</h4></header>
+	<div class="content clearfix">
+		<ul>
+			{exp:channel:entries channel="testimonials" disable="{global-disable}" dynamic="off" limit="{if segment_2}5{if:else}12{/if}"}
+			<li>
+				<p>{exp:eehive_hacksaw words="40" append="..." allow="<br />"}{testimonial}{/exp:eehive_hacksaw}</p>
+				<small>&ndash;&ndash;&ndash; {title}</small>
+			</li>
+			{/exp:channel:entries}
+		</ul>
+		<ul class="pager">
+			<li><a href="#">1</a></li>
+		</ul>
+	</div>
+<!-- / Testimonials -->

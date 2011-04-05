@@ -1,0 +1,63 @@
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" value="<?=$pref_id?>" />
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<table id="attachment-entries" class="mainTable padTable" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th style="width:3%;  text-align:left;">&nbsp;</th>
+				<th style="width:15%; text-align:left;">
+					<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;
+					<?=$lang_delete?>
+				</th>
+				<th style="width:15%; text-align:left;"><?=$lang_filename?></th>
+				<th style="width:5%; text-align:left;"><?=$lang_filesize?></th>
+				<th style="width:20%; text-align:left;"><?=$lang_date?></th>
+				<th style="width:42%; text-align:left;"><?=$lang_emailed?></th>
+			</tr>
+		</thead>
+		
+		<tbody>
+<?php foreach($attachments as $attachment):?>
+			<?php $class = $this->cycle('odd', 'even'); ?>
+			<tr class="<?=$class?>">
+				<td><?=$attachment['count']?></td>
+				<td>			
+					<input type="checkbox" name="toggle[]" 
+					   	   id="delete_box_<?=$attachment['id']?>" value="<?=$attachment['id']?>"/>
+				</td>
+				<td>
+			<?php if ( $do_link ) :?>
+					<a href="<?=$attachment['download_url']?>"><?=$attachment['filename']?></a>
+			<?php else:?>				
+					<?=$attachment['filename']?>
+			<?php endif;?>						
+				</td>
+				<td><?=$attachment['filesize']?></td>
+				<td><?=$attachment['date']?></td>
+				<td><?=$attachment['emailed']?></td>				
+			</tr>			
+<?php endforeach; ?>	
+		</tbody>	
+		<?php $class = $this->cycle('odd', 'even'); ?>
+		<tfoot>
+			<tr class="<?=$class?>">
+				<td>&nbsp;</td>
+				<td>
+					<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;
+					<strong><?=$lang_delete?></strong>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<p>
+		<input type="submit" name="submit" class="submit" value="Delete" />
+	</p>
+</form>
+
+<script type="text/javascript">create_magic_checkboxes('attachment-entries');</script>

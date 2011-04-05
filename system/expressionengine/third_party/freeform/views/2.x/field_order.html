@@ -1,0 +1,42 @@
+<?php if ( ! empty( $fields ) ):?>
+
+<form method="post" action="<?=$form_url?>">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<table id="attachment-entries" class="mainTable padTable" style="width:100%;" 
+		   cellspacing='0'  cellpadding='0'  border='0'>
+		<thead>
+			<tr>
+				<th  style="width:3%;  text-align:left;">&nbsp;</th>
+				<th  style="width:15%; text-align:left;"><?=$lang_name?></th>
+				<th  style="width:82%;  text-align:left;"><?=$lang_order?></th>
+			</tr>
+		</thead>
+		<tbody>
+			
+<?php foreach($fields as $field):?>
+		<?php $class = $this->cycle('odd', 'even'); ?>
+			<tr class="<?=$class?>">
+				<td><?=$field['count']?></td>
+				<td><?=$field['name']?></td>
+				<td>			
+					<input type="input" name="field_id[<?=$field['id']?>]" 
+					   	   value="<?=$field['order']?>" size="35" 
+						   maxlength="10" class="input" style="width:15%;"/> 
+				</td>		
+			</tr>			
+<?php endforeach; ?>
+
+		</tbody>
+	</table>
+	<p>
+		<input class="submit" type="submit" name="submit" value="<?=$lang_submit?>" />
+	</p>
+</form>
+
+<?php else:?>
+
+<p class="highlight">
+		<?=$lang_no_fields?>
+	</p>
+
+<?php endif;?>

@@ -1,0 +1,83 @@
+{preload_replace:channel="about"}
+{embed="inc/header" title="Sitemap"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<!-- Breadcrumbs -->
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path=sitemap}" itemprop="url"><span itemprop="title">Sitemap</span></a></li>
+	</ul>
+	<!-- / Breadcrumbs -->
+
+
+	<h1>Sitemap</h1>
+	
+	<ol class="sitemap">
+		<li><h2><a href="{path=library-professionals}">Library Professionals</a></h2>
+			<ol>
+				{exp:query sql="SELECT DISTINCT A.title, A.url_title, A.entry_id as target_entry_id FROM exp_channel_titles A, exp_category_posts B where channel_id=4 and A.entry_id=B.entry_id and B.cat_id=20 and A.entry_id NOT IN (SELECT C.entry_id from exp_category_posts C WHERE cat_id IN (29)) ORDER BY A.title ASC"}
+					<li><a href="{path=library-professionals/view}/{url_title}">{title}</a></li>
+				{/exp:query}
+				<li><ol>
+				{exp:query sql="SELECT cat_id, cat_name, cat_url_title, cat_description, cat_image FROM exp_categories WHERE parent_id =20"}
+					<li><h3><a href="{path=library-professionals/{cat_url_title}}">{cat_name}</a></h3>
+						
+				{/exp:query}
+					<ol>
+					{exp:channel:entries channel="course" disable="{global-disable}" dynamic="off" category='29' status="not Closed"}
+						<li><a href="{title_permalink=library-professionals/seminars/view}">{title}</a></li>
+					{/exp:channel:entries}
+					</ol>
+					</li>	
+				</ol></li>
+			</ol>
+		</li>
+		
+		<li class="cat"><h2><a href="{path=students}">Students</a></h2>
+				<ol>
+					{exp:query sql="SELECT cat_id, cat_name from exp_categories where parent_id=21"}	
+					<li><h3>{cat_name}</h3>
+						{embed="sitemap/sitemap-course" cat_id="{cat_id}"}
+					</li>
+					{/exp:query}
+				</ol>
+		</li>
+		
+		<li class="cat"><h2><a href="{path=adults-educators}">Adults &amp; Educators</a></h2>
+				<ol>
+					{exp:query sql="SELECT cat_id, cat_name from exp_categories where parent_id=25"}	
+					<li><h3>{cat_name}</h3>
+						{embed="sitemap/sitemap-course" cat_id="{cat_id}"}
+					</li>
+					{/exp:query}
+				</ol>
+		</li>
+		<li><h2><a href="{path=about}">About NLBA</a></h2>
+			<ol>
+				{exp:query sql="SELECT title, url_title, entry_id FROM exp_channel_titles WHERE channel_id=9 and entry_id!=41 ORDER BY title ASC"}
+					<li {if segment_2==url_title}class="active"{/if}><a href="{path=about}/{url_title}">{title}</a></li>
+				{/exp:query}
+				<li><a href="{path=about/clients}">Clients</a></li>
+				<li {if segment_2=="trainers"}class="active"{/if}><a href="{path=about/trainers}">Trainers</a></li>
+			</ol>
+		</li>
+	</ol>
+	
+	
+
+</div>
+
+<aside id="Sidebar">
+	
+	
+	
+	{testimonial-module}
+	
+</aside>
+
+
+
+{embed="inc/footer"}

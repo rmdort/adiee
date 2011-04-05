@@ -1,0 +1,74 @@
+<?php if ( ! empty( $fields ) ):?>
+	<form method="post" action="<?=$fields_form_url?>">
+		<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+		<table id="field-entries" class="mainTable padTable" style="width:100%;" 
+			   cellspacing='0'  cellpadding='0'  border='0'>
+			<thead>
+				<tr>
+					<th style="width:3%;  text-align:left;">&nbsp;</th>
+					<th  style="width:15%; text-align:left;">
+						<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;
+						<?=$lang_delete?>
+					</th>
+					<th  style="width:15%; text-align:left;"><?=$lang_name?></th>
+					<th  style="width:72%; text-align:left;"><?=$lang_label?></th>
+				</tr>
+			</thead>
+			
+			<tbody>
+	<?php foreach($fields as $field):?>
+				<?php $class = $this->cycle('odd', 'even'); ?>
+				<tr class="<?=$class?>">
+					<td><?=$field['count']?></td>
+					<td>
+				<?php if ( $field['locked'] ) :?>
+						<?=$lang_locked?>
+				<?php else:?>				
+					<input type="checkbox" name="toggle[]" 
+						   id="delete_box_<?=$field['id']?>" value="<?=$field['id']?>"/>
+				<?php endif;?>
+					</td>
+					<td>
+				<?php if ( $field['locked'] ) :?>
+						<?=$field['name']?>
+				<?php else:?>				
+					<a href="<?=$field['edit_url']?>"><?=$field['name']?></a>
+				<?php endif;?>						
+					</td>
+					<td><?=$field['label']?></td>
+				</tr>
+	<?php endforeach; ?>	
+			</tbody>	
+			<?php $class = $this->cycle('odd', 'even'); ?>
+			<tfoot>
+				<tr class="<?=$class?>">
+					<td>&nbsp;</td>
+					<td>
+						<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;
+						<strong><?=$lang_delete?></strong>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				
+				<?php if ( $paginate ): ?>
+					<?php $class = $this->cycle('odd', 'even'); ?>
+						<tr class="<?=$class?>">
+							<td  colspan="4">	
+								<?=$paginate?>
+							</td>
+						<tr>		
+				<?php endif; ?>
+				
+			</tfoot>
+		</table>
+		<p>
+			<input class="submit" type="submit" name="submit" value="<?=$lang_delete?>" />
+		</p>
+	</form>
+
+<?php else: ?>	
+	<p class="highlight"><?=$lang_no_fields?></p>
+<?php endif; ?>
+
+<script type="text/javascript">create_magic_checkboxes('field-entries');</script>

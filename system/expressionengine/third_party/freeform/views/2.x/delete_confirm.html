@@ -1,0 +1,20 @@
+<form action="<?=$form_url?>" method="post">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<div class="hidden">
+		<?php foreach($hidden_inputs as $data): ?>
+			<input type="hidden" name="<?=$data['name']?>" value="<?=$data['value']?>" />
+		<?php endforeach;?>
+	</div>
+
+	<p>
+		<p><?=$lang_confirm_delete?></p>
+	</p>
+	
+	<p class="notice">
+		<?=$lang_no_undo?>
+	</p>
+	
+	<p>
+		<input class="delete submit" type="submit" name="submit" value="<?=$lang_delete?>" />
+	</p>
+</form>

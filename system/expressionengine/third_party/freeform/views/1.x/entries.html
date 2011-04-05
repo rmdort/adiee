@@ -1,0 +1,140 @@
+
+<div class="tableHeading"><?=$lang_manage_entries?></div>
+<form method="post" id="search" name="search" action="<?=$manage_form_url?>">
+	<div class="itemWrapper box"> 
+		<select class="select" name="form_name">
+			<option value=""><?=$lang_filter_by_collection?></option>
+	<?php if ( ! empty($forms) ): ?>
+		<?php foreach($forms as $form):?>
+			<option value="<?php echo $form->form_name; ?>"<?php 
+				echo ( $form->form_name == $get_form_name ) ? ' selected="selected"': '';
+			?>><?php echo $form->form_name; ?></option>
+		<?php endforeach; ?>	
+	<?php endif; ?>	
+		</select>
+		&nbsp;
+		<select class="select" name="status">
+			<option value=""><?=$lang_filter_by_status?></option>
+			<option value="open"<?php 
+				echo ( $get_status == 'open' ) ? ' selected="selected"': '';
+			?>><?=$lang_open?></option>
+			<option value="closed"<?php 
+				echo ( $get_status == 'closed' ) ? ' selected="selected"': '';
+			?>><?=$lang_closed?></option>
+		</select>
+		&nbsp;
+		<?=$lang_show_empty_fields?> 
+		<input type="checkbox" value="yes" name="show_empties" class="radio" id="show_empty_yes"<?php 
+			echo ( $get_show_empties == 'yes' ) ? ' checked="checked"': '';
+		?>>
+		&nbsp;
+		<input type="submit" value="<?=$lang_search?>" class="submit">
+	</div>
+</form>
+
+<div class='clearfix'>&nbsp;</div>
+
+<?php if ( ! empty($entries) ):?>
+	<form method="post"  action="<?=$delete_form_url?>">
+		
+<div id="entries_holder" style="width:100%; overflow:auto;">
+		<table id="freeform-entries" class="tableBorder noFloat" style="width:100%; margin:0;"
+			   cellspacing='0'  cellpadding='0'  border='0'>
+			<thead>
+				<tr>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_count?></th>
+					<th class="tableHeadingAlt" style="text-align:left;">
+						<input type="checkbox" name="toggle_all_checkboxes" value=""/>&nbsp;&nbsp;<?=$lang_delete?>
+					</th>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_edit?></th>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_attachments?></th>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_status?></th>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_date?></th>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_form_name?></th>
+					<th class="tableHeadingAlt" style="text-align:left;"><?=$lang_template?></th>
+			<?php if ( ! empty($fields) ):?>
+				<?php foreach($fields as $label):?>
+					<th class="tableHeadingAlt"   style="text-align:left;"><?=$label?></th>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+			</thead>
+			<tbody>	
+		<?php foreach ($entries as $entry):?>
+				<?php $class = $this->cycle('tableCellOne', 'tableCellTwo');?>		
+				<tr>
+					<td class="<?=$class?>"><?=$entry['count']?></th>
+					<td class="<?=$class?>">
+						<input type="checkbox" name="toggle[]" 
+							   id="delete_box_<?=$entry['id']?>" value="<?=$entry['id']?>"/>
+					</td>
+					<td class="<?=$class?>"><a href="<?=$entry['edit_url']?>"><?=$lang_edit?></a></td>
+					<td class="<?=$class?>">
+					<?php if ( isset($entry['attachment_url']) ):?>	
+						<a href="<?=$entry['attachment_url']?>"><?=$lang_attachments?></a>
+					<?php endif;?>	
+					</td>
+					<td class="<?=$class?>"><?=$entry['status']?></td>
+					<td class="<?=$class?>">
+						<span style="white-space:nowrap;"><?=$entry['date']?></span>
+					</td>
+					<td class="<?=$class?>"><?=$entry['form_name']?></td>
+					<td class="<?=$class?>"><?=$entry['template']?></td>
+			<?php if ( ! empty( $entry['fields'] ) ):?>
+				<?php foreach($entry['fields'] as $field):?>
+					<td class="<?=$class?>"><?=$field?></td>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+		<?php endforeach; ?>
+			</tbody>
+			<tfoot>
+				<?php $class = $this->cycle('tableCellOne', 'tableCellTwo');?>
+				<tr>
+					<td class="<?=$class?>">&nbsp;</td>
+					<td class="<?=$class?>">
+						<table>
+							<tr>
+								<td><input type="checkbox" name="toggle_all_checkboxes" value=""/></td>
+								<td>&nbsp;&nbsp;<?=$lang_delete?></td>
+								<td style="display:none;"></td>
+							</tr>
+						</table>
+					</td>
+					<td class="<?=$class?>">&nbsp;</td>
+					<td class="<?=$class?>">&nbsp;</td>
+					<td class="<?=$class?>">&nbsp;</td>
+					<td class="<?=$class?>">&nbsp;</td>
+					<td class="<?=$class?>">&nbsp;</td>
+					<td class="<?=$class?>">&nbsp;</td>
+			<?php if ( ! empty($fields) ):?>
+				<?php foreach($fields as $label):?>
+					<td class="<?=$class?>">&nbsp;</td>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+				
+				<?php if ( $paginate ): ?>
+					<?php $class = $this->cycle('tableCellOne', 'tableCellTwo'); ?>
+						<tr>
+							<td class="<?=$class?>" colspan="<?php echo (count($fields) + 8);?>">	
+								<?=$paginate?>
+							</td>
+						<tr>		
+				<?php endif; ?>
+				
+			</tfoot>
+		</table>
+</div>	
+	<div class='clearfix'>&nbsp;</div>
+		<div class="itemWrapper" style="margin:0 10px">
+			<input type="submit" name="submit" value="Delete" />
+		</div>
+	</form>
+<?php else: ?>	
+	<div class="tableCellOne"  style="margin:0 10px;">
+		<div class="highlight"><?=$lang_no_entries?></div>
+	</div>
+<?php endif; ?>
+
+<script type="text/javascript">create_magic_checkboxes('freeform-entries');</script>

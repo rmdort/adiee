@@ -1,0 +1,12 @@
+<script type="text/javascript" src="{site_url}js/swfobject.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {				
+	var so = new SWFObject("{get_post:file}", "sotester", "{get_post:w}", "{get_post:h}", "9", "#FFFFFF");
+	so.addParam ("wmode", "transparent");
+	so.addParam ("allowScriptAccess", "always");
+	so.write("PreviewVideo");
+});
+</script>
+<div id="PreviewVideo">
+	
+</div>

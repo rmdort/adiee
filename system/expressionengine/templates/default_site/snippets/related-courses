@@ -1,0 +1,12 @@
+{if course-related}
+<!-- Related Courses -->
+<div class="related module">
+	<h3>Related Courses</h3>	
+	<ul class="links">
+		{course-related limit="10" status="not Closed"}
+		<li><a href="{path=/}{exp:nlbaformat:getcaturl entry_id="{entry_id}"} {/exp:nlbaformat:getcaturl}view/{url_title}">{title}</a></li>
+		{/course-related}
+	</ul>
+</div>
+<!-- / Related Courses -->
+{/if}

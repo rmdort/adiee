@@ -1,0 +1,39 @@
+{preload_replace:channel="news"}
+{exp:channel:entries channel="{channel}" disable="{global-disable}" limit="1"}
+
+{embed="inc/header" title="{title}"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<!-- Breadcrumbs -->
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path={segment_1}}" itemprop="url"><span itemprop="title">News & events</span></a></li>
+		{if segment_3}
+		<li itemtype="http://data-vocabulary.org/Breadcrumb" class="active"><a href="{title_permalink=news-events/view}" itemprop="url"><span itemprop="title">{title}</span></a></li>
+		{/if}
+	</ul>
+	<!-- / Breadcrumbs -->
+
+
+	<h1>{title}</h1>
+
+	{news-body}			
+	
+	{news-images}
+		<p><img src="{url}" alt="{desc}"></p>
+	{/news-images}
+	
+	{/exp:channel:entries}
+	
+</div>
+
+<aside id="Sidebar">
+	{embed="inc/share"}
+</aside>
+
+
+
+{embed="inc/footer"}

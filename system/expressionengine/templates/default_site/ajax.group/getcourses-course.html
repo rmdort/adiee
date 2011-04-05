@@ -1,0 +1,27 @@
+{exp:channel:entries channel="course" disable="{global-disable}" entry_id="{embed:entries}" dynamic="off" status="not Closed" dynamic="off" fixed_order="{embed:entries}"}
+<li>						
+	<h3><a href="{title_permalink={get_post:urlcat}/view}">{title}</a></h3>
+	<ol class="tags">
+		{categories show_group="2"}
+			{if parent_id!=0}<li>{category_name}</li>{/if}
+		{/categories}
+		{if course-duration}<li>{course-duration}</li>{/if}
+		{categories show_group="3"}
+			<li style="background-color:#{category_color}">Format: {category_name}</li>
+		{/categories}
+		{if course-fees}<li>{course-fees}</li>{/if}
+		{if course-preview}
+			{course-preview}
+			<li class="coursePreview"><a href="{path=ajax/course-preview}/?&file={flash}&w={if width}{width}{if:else}800{/if}&h={if height}{height}{if:else}542{/if}" rel="facebox">Course Preview</a></li>
+			{/course-preview}
+		{/if}
+	</ol>
+	{course-summary}
+	<p><a href="{title_permalink={get_post:urlcat}/view}">Read more</a></p>
+</li>
+{if no_results}
+<li>
+	<p>We could not find any courses that match your search. Try our <a href="{path=search}">advanced search</a> option.</p>
+</li>
+{/if}
+{/exp:channel:entries}

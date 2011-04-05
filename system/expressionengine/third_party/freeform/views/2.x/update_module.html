@@ -1,0 +1,12 @@
+<?php echo $this->load->view('header.html');?>
+
+<div class="clear_left"></div>
+	
+	<form action='<?php echo $form_url;?>' method='post'>
+		<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+		<input type="hidden" name="run_update" value="y" />
+		<p><strong><?php echo $this->lang->line('freeform_update_message'); ?></strong></p>
+		<p><input  type='submit' class='submit' value='<?php echo $this->lang->line('update');?>'  /></p>
+	</form>
+	
+<?php echo $this->load->view('footer.html'); ?>

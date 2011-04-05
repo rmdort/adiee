@@ -1,0 +1,89 @@
+
+{embed="inc/share"}
+
+<!-- Course Details -->
+<div class="module">
+	<dl class="courseDetails">
+		
+		
+		{exp:query sql="SELECT count(*) as catcount FROM exp_category_posts where entry_id='{entry_id}' AND cat_id in (11,13)"}
+			{if catcount!="0"}
+			<dt><img src="{site_url}images/site/icon-when.png" alt="">When</dt>
+			<dd>
+				<p>Customisable for face-to-face and e-learning</p>
+				<p><strong>Duration E-learning:</strong> Minimum 2 hours<br>
+				<strong>Duration Blended:</strong> Minimum 4 hours</p>
+			</dd>
+			{if:else}
+				
+				{if course-date}
+					{course-date limit="1" search}
+						<dt><img src="{site_url}images/site/icon-when.png" alt="">When</dt>
+						<dd class="dates">
+							{if start-date}<p><strong>{start-date format="%d %F %Y"}{if end-date}{end-date format=" &ndash; %d %F %Y, %g:%i %A"}{/if}</strong></p>{/if}
+							{if start-date}<p>Time : {start-date format="%g:%i %A"}</p>{/if}
+							{if duration}<p><strong>Duration :</strong> {duration} hours</p>{/if}
+
+							{exp:query sql="SELECT count(*) as catcount FROM exp_category_posts where entry_id='{entry_id}' AND cat_id=11"}
+								{if catcount!="0"}
+									<p><strong>Duration E-learning:</strong> Minimum 2 hours</p>
+								{/if}
+							{/exp:query}
+
+						</dd>
+					{/course-date}
+
+				{/if}
+				
+			{/if}
+		{/exp:query}
+		
+	
+	{if course-location}
+		<dt><img src="{site_url}images/site/icon-where.png" alt="">Where</dt>
+		<dd><strong>{course-location}</strong></dd>
+	{/if}
+
+	{if course-forwhom}
+		<dt><img src="{site_url}images/site/icon-whom.png" alt="">For Whom</dt>
+		<dd>{course-forwhom}</dd>
+	{/if}
+
+	{if course-trainers}
+		<dt><img src="{site_url}images/site/icon-trainers.png" alt="">Trainers</dt>
+		<dd class="alt">
+			<ul class="links">
+			{course-trainers}
+				<li><a href="{path=about/trainers}/{url_title}">{title}</a></li>
+			{/course-trainers}
+			</ul>
+		</dd>
+	{/if}
+
+	<dt><img src="{site_url}images/site/icon-enroll.png" alt="">How to enroll</dt>
+	<dd class="alt">
+		<p><strong>Please register your interest with us.</strong> </p>
+		<p>Tel: 6354 5131 / 5123 <br>Fax: 6354 5071 <br>Email: {encode="nlbacademy@nlb.gov.sg"}</p>
+		</p>
+	</dd>
+
+	{if course-fees}
+		<dt><img src="{site_url}images/site/icon-howmuch.png" alt="">How much</dt>
+		<dd>
+			<strong>SGD {course-fees}</strong>
+		</dd>
+	{/if}
+	
+	{exp:query sql="SELECT count(*) as catcount FROM exp_category_posts where entry_id='{entry_id}' AND cat_id=11"}
+	{if catcount==0}
+	<dt><img src="{site_url}images/site/icon-disclaimer.png" alt="">Disclaimer</dt>
+	<dd class="alt">
+		<!-- Disclaimer -->
+		NLB Academy reserves the right to cancel or postpone the course, change the trainer and venue to unforeseen circumstances.
+		<!-- / Disclaimer -->
+	</dd>
+	{/if}
+	{/exp:query}
+
+</div>
+<!-- / Course Details -->

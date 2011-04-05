@@ -1,0 +1,17 @@
+{exp:category_sorted_entries channel="course" style="linear" group_id="3" show_empty="no" category="{get_post:level}" status="not Closed"}
+{entry_titles}
+<?php
+$entries[] = "{entry_id}"; //loop through articles and load entries in array
+?>
+{/entry_titles}
+{/exp:category_sorted_entries}
+
+<?php
+if(isset($entries)){
+	$output = array_unique($entries);
+	$outputim = implode('|',$output);
+} 
+
+?>
+
+{embed="ajax/getcourses-course" entries="<?php echo $outputim; ?>"}

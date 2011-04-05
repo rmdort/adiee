@@ -1,0 +1,5 @@
+{exp:channel:entries channel="course" disable="{global-disable}" category="{embed:cat_id}" dynamic="off" status="not Closed" orderby="title" sort="asc"}
+{if count==1}<ol>{/if}
+<li><a href="{title_permalink=students/view}">{title}</a></li>
+{if count==total_results}</ol>{/if}
+{/exp:channel:entries}

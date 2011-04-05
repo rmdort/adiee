@@ -1,0 +1,46 @@
+{embed="inc/header" title="Search"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path={segment_1}}" itemprop="url"><span itemprop="title">Search</span></a></li>
+	</ul>
+
+	<h1>Search</h1>
+		
+	
+	{exp:search:advanced_form channel="news|course|trainers|about" no_result_page="search/noresults" results_page="search/results" results="10" where="all" status="not Closed" search_in="everywhere" show_expired="yes" show_future_entries="yes" form_id="SearchForm"} 
+		<fieldset>
+			<label for="Advkeywords">Search by Keyword</label>
+			<input type="text" class="input" maxlength="100" size="40" name="keywords" id="Advkeywords" /> 
+			<select name="where" id="Where" size="4"> 
+				<option value="exact" selected="selected">{lang:exact_phrase_match}</option> 
+				<option value="any">{lang:search_any_words}</option> 
+				<option value="all" >{lang:search_all_words}</option> 
+				<option value="word" >{lang:search_exact_word}</option> 
+				</select>
+		</fieldset>
+		<fieldset>
+			<select id="channel_id" name='channel_id[]' class='multiselect' onchange='changemenu(this.selectedIndex);' size="4">
+				<option selected="selected" value="null">Everywhere</option>
+				<option value="4">Courses</option>
+				<option value="1">News</option>
+				<option value="3">Trainer Profile</option>
+			</select> 
+			<select name='cat_id[]' class='multiselect' size="6"> <option value='all' selected="selected">{lang:any_category}</option> </select> 
+		</fieldset>
+		<fieldset class="forms">
+			<input type="submit" value="Search" class="submit">
+		</fieldset>
+	{/exp:search:advanced_form}
+
+
+</div>
+
+<aside id="Sidebar">
+</aside>
+
+{embed="inc/footer"}

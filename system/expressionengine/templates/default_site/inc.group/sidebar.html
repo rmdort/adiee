@@ -1,0 +1,18 @@
+{embed="inc/share"}
+
+{exp:channel:entries channel="announcements" limit="8" disable="{global-disable}" dynamic="off"}
+{if count==1}<aside><h3>Key Annoucements</h3>
+<ul class="links">{/if}
+	<li><a href="{title_permalink=announcements}">{title}</a></li>
+{if count==total_results}</ul></aside>{/if}
+{/exp:channel:entries}
+
+<aside class="module">
+	{exp:query sql="SELECT field_id_1 as why_choose FROM exp_category_field_data where cat_id='{segment_1_category_id}'"}
+	<p><a href="{path={segment_1}/why-choose-nlba}"><img src="{why_choose}" alt="Why choose {segment_1_category_name}"></a></p>
+	{/exp:query}
+</aside>
+
+<aside class="testimonials module">
+{embed="inc/testimonial"}
+</aside>

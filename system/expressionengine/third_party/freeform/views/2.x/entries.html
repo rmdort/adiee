@@ -1,0 +1,165 @@
+<form method="post" id="search" name="search" action="<?=$manage_form_url?>">
+	<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+	<fieldset style="margin-top:0;">
+		<p><select class="select" name="form_name">
+				<option value=""><?=$lang_filter_by_collection?></option>
+		<?php if ( ! empty($forms) ): ?>
+			<?php foreach($forms as $form):?>
+				<option value="<?php echo $form->form_name; ?>"<?php 
+					echo ( $form->form_name == $get_form_name ) ? ' selected="selected"': '';
+				?>><?php echo $form->form_name; ?></option>
+			<?php endforeach; ?>	
+		<?php endif; ?>	
+			</select>
+			&nbsp;
+			<select class="select" name="status">
+				<option value=""><?=$lang_filter_by_status?></option>
+				<option value="open"<?php 
+					echo ( $get_status == 'open' ) ? ' selected="selected"': '';
+				?>><?=$lang_open?></option>
+				<option value="closed"<?php 
+					echo ( $get_status == 'closed' ) ? ' selected="selected"': '';
+				?>><?=$lang_closed?></option>
+			</select>
+			&nbsp;
+			<?=$lang_show_empty_fields?> 
+			<input type="checkbox" value="yes" name="show_empties" class="radio" id="show_empty_yes"<?php 
+				echo ( $get_show_empties == 'yes' ) ? ' checked="checked"': '';
+			?>>
+			&nbsp;
+			<input type="submit" value="<?=$lang_search?>" name="submit" class="" />
+		</p>
+	
+	</fieldset>
+</form>
+<p>&nbsp;</p>
+
+<style type="text/css">
+	/*have to have this dummy to force items on the same line*/
+	#ss_plain, #ss_plain2, 
+	#ss_plain tr, #ss_plain2 tr,
+	#ss_plain td, #ss_plain2 td,
+	#ss_plain td:last-child, #ss_plain2 td:last-child {
+		background:transparent; 
+		padding:0px; 
+		border:none;
+		border-collapse:collapse;
+	}
+		
+	#mainContent .pageContents #ss_plain,
+	#mainContent .pageContents #ss_plain2 {
+		margin-bottom:0;
+	}
+	
+</style>
+
+<?php if ( ! empty($entries) ):?>
+	<form method="post" action="<?=$delete_form_url?>">
+		<input type="hidden" name="XID" value="<?=$XID_SECURE_HASH?>" />
+
+	<div id="entries_holder" style="width:100%; overflow:auto;">
+		<table id="freeform-entries" class="mainTable padTable" 
+			   cellspacing='0'  cellpadding='0'  border='0' style="width:100%;">
+			<thead>
+				<tr>
+					<th  style="text-align:left;"><?=$lang_count?></th>
+					<th  style="text-align:left;">
+						<table id="ss_plain">
+							<tr>
+								<td><input type="checkbox" name="toggle_all_checkboxes" value=""/></td>
+								<td>&nbsp;&nbsp;<?=$lang_delete?></td>
+								<td style="display:none;"></td>
+							</tr>
+						</table>
+					</th>
+					<th  style="text-align:left;"><?=$lang_edit?></th>
+					<th  style="text-align:left;"><?=$lang_attachments?></th>
+					<th  style="text-align:left;"><?=$lang_status?></th>
+					<th  style="text-align:left;"><?=$lang_date?></th>
+					<th  style="text-align:left;"><?=$lang_form_name?></th>
+					<th  style="text-align:left;"><?=$lang_template?></th>
+			<?php if ( ! empty($fields) ):?>
+				<?php foreach($fields as $label):?>
+					<th   style="text-align:left;"><?=$label?></th>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+			</thead>
+			<tbody>	
+		<?php foreach ($entries as $entry):?>
+				<?php $class = $this->cycle('odd', 'even');?>		
+				<tr class="<?=$class?>">
+					<td><?=$entry['count']?></th>
+					<td>
+						<input type="checkbox" name="toggle[]" 
+							   id="delete_box_<?=$entry['id']?>" value="<?=$entry['id']?>"/>
+					</td>
+					<td><a href="<?=$entry['edit_url']?>"><?=$lang_edit?></a></td>
+					<td>
+						<?php if ( isset($entry['attachment_url']) ):?>	
+							<a href="<?=$entry['attachment_url']?>"><?=$lang_attachments?></a>
+						<?php endif;?>
+					</td>
+					<td><?=$entry['status']?></td>
+					<td>
+						<span style="white-space:nowrap;"><?=$entry['date']?></span>
+					</td>
+					<td><?=$entry['form_name']?></td>
+					<td><?=$entry['template']?></td>
+			<?php if ( ! empty( $entry['fields'] ) ):?>
+				<?php foreach($entry['fields'] as $field):?>
+					<td><?=$field?></td>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+		<?php endforeach; ?>
+			</tbody>
+			<tfoot>
+				<?php $class = $this->cycle('odd', 'even');?>
+				<tr class="<?=$class?>">
+					<td>&nbsp;</td>
+					<td>
+						<table id="ss_plain2">
+							<tr>
+								<td><input type="checkbox" name="toggle_all_checkboxes" value=""/></td>
+								<td>&nbsp;&nbsp;<?=$lang_delete?></td>
+								<td style="display:none;"></td>
+							</tr>
+						</table>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+			<?php if ( ! empty($fields) ):?>
+				<?php foreach($fields as $label):?>
+					<td>&nbsp;</td>	
+				<?php endforeach; ?>	
+			<?php endif;?>
+				</tr>
+				
+				<?php if ( $paginate ): ?>
+					<?php $class = $this->cycle('odd', 'even'); ?>
+						<tr class="<?=$class?>">
+							<td colspan="<?php echo (count($fields) + 8);?>">	
+								<?=$paginate?>
+							</td>
+						<tr>		
+				<?php endif; ?>
+				
+			</tfoot>
+		</table>
+</div>
+	
+		<p>
+			<input type="submit" class="submit" name="submit" value="Delete" />
+		</p>
+	</form>
+<?php else: ?>	
+	<p class="highlight"><?=$lang_no_entries?></p>
+<?php endif; ?>
+
+
+<script type="text/javascript">create_magic_checkboxes('freeform-entries');</script>

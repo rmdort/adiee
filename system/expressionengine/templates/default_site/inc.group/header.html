@@ -1,0 +1,67 @@
+<!doctype html>  
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  {exp:seo_lite url_title="{embed:url_title}" default_title="{embed:title}" default_keywords="{embed:keywords}" default_description="{embed:description}" category_title="{embed:category_title}"}  
+  <meta name="viewport" content="width=960">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="{exp:cache_buster file="/css/style.css" separator="?"}">
+	<link rel="stylesheet/less" href="{exp:cache_buster file="/css/nlba.less" separator="?"}" media="all">
+	<link rel="stylesheet" href="{site_url}css/facebox.css?v=2">
+	<script src="{site_url}js/less-1.0.41.min.js"></script>
+  <script src="{site_url}js/libs/modernizr-1.6.min.js"></script>
+</head>
+
+<body lang="en" class="{if embed:body_class!="error"}{exp:classee_body attr="false"}{/if}{if embed:body_class} {embed:body_class}{/if}">
+	
+	<nav id="Utility">
+		<ul>
+			<li><a href="{path=about}">About NLBA</a></li>
+			<li><a href="{path=about/clients}">Clients</a></li>
+			<li><a href="{path=news-events}">News &amp; events</a></li>
+			<li><a href="http://elearn.nlba.sg/" rel="external">E-learning Portal</a></li>
+			<li><a href="{path=contact}">Contact</a></li>
+			<li><a href="{path=faqs}">Faqs</a></li>			
+			<li class="search">
+				{exp:search:simple_form channel="news|course|trainers|about" no_result_page="search/noresults" results_page="search/results" results="10" where="all" status="not Closed" search_in="everywhere" show_expired="yes" show_future_entries="yes"}
+					<p>
+						<label for="keywords">Search:</label>
+						<input type="text" name="keywords" id="keywords" value="{if "{exp:search:keywords}"!=""}{exp:search:keywords}{if:else}Search{/if}">
+						<input type="image" src="{site_url}images/site/utility-search-submit.jpg" alt="Search">
+						<input type="hidden" name="orderby" value="title" />
+						<input type="hidden" name="sort_order" value="asc" />
+					</p> 
+				{/exp:search:simple_form}
+			</li>
+		</ul>
+	</nav>
+	
+	<!-- Container -->
+	<div id="Container">
+		
+		<header role="banner" id="Logo">
+		    <hgroup>
+		        <h1><a href="{site_url}" title="{site_name} - Home">NLB Academy</a></h1>
+		        <h2>Knowledge Understood</h2>
+		    </hgroup>
+		</header>
+		
+		
+		<!-- Navigation -->
+		<nav role="navigation" id="Primary">
+			<ul>
+				{exp:categories category_group_id="2" children="n"}	
+				<li {if segment_1==category_url_title}class="active"{/if}><a href="{path={category_url_title}}">{category_name}</a></li>
+				{/exp:categories}
+				<li {if segment_1=="partners"}class="active"{/if}><a href="{path=partners}">Partners</a></li>
+			</ul>
+		</nav>
+		<!-- / Navigation -->
+		
+		<!-- Content -->
+		<div id="Content" class="clearfix">		

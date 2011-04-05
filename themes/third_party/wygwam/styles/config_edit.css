@@ -1,0 +1,82 @@
+/* toolbar label & desc */
+#toolbar #tb-label { margin: 4px 0 20px; }
+#toolbar #tb-label table { margin: -4px auto 0; }
+#toolbar #tb-label table td { border: none !important; padding: 0 0 0 92px; height: 82px; white-space: nowrap; background: no-repeat 0 50%; }
+#toolbar #tb-label #tbhelp1 { background-image: url(../images/tbhelp1.png); padding-right: 24px; }
+#toolbar #tb-label #tbhelp2 { background-image: url(../images/tbhelp2.png); }
+
+/* CKEditor skin overrides */
+#toolbar .cke_skin_wygwam2 *,
+#toolbar .cke_skin_wygwam2 a:hover,
+#toolbar .cke_skin_wygwam2 a:link,
+#toolbar .cke_skin_wygwam2 a:visited,
+#toolbar .cke_skin_wygwam2 a:active { white-space: normal; }
+
+#toolbar .cke_skin_wygwam2 .cke_button a:hover,
+#toolbar .cke_skin_wygwam2 .cke_button a:focus,
+#toolbar .cke_skin_wygwam2 .cke_button a:active { background-color: transparent; }
+
+#toolbar .cke_skin_wygwam2 .cke_button a:hover.cke_on,
+#toolbar .cke_skin_wygwam2 .cke_button a:focus.cke_on,
+#toolbar .cke_skin_wygwam2 .cke_button a:active.cke_on,
+#toolbar .cke_skin_wygwam2 .cke_button a:hover.cke_off,
+#toolbar .cke_skin_wygwam2 .cke_button a:focus.cke_off,
+#toolbar .cke_skin_wygwam2 .cke_button a:active.cke_off,
+#toolbar .cke_skin_wygwam2 .cke_rcombo .cke_off a:hover .cke_text,
+#toolbar .cke_skin_wygwam2 .cke_rcombo .cke_off a:focus .cke_text,
+#toolbar .cke_skin_wygwam2 .cke_rcombo .cke_off a:active .cke_text,
+#toolbar .cke_skin_wygwam2 .cke_rcombo .cke_on .cke_text { opacity: 0.7; }
+
+#toolbar .cke_skin_wygwam2 .cke_top { border: none !important; padding-bottom: 2px !important; }
+
+/* grab cursors */
+#toolbar .cke_skin_wygwam2 .cke_toolgroup,
+#toolbar .cke_skin_wygwam2 .cke_toolgroup *,
+#toolbar .cke_skin_wygwam2 .cke_rcombo a,
+#toolbar .cke_skin_wygwam2 .cke_rcombo a *,
+#toolbar .cke_skin_wygwam2 .cke_clear { cursor: move; cursor: -webkit-grab; cursor: -moz-grab; }
+
+#toolbar .cke_skin_wygwam2 .cke_button a { margin: -2px 0; padding: 4px; }
+
+body.tb-dragging * { cursor: -webkit-grabbing !important; }
+
+/* selections */
+#toolbar #tb-selections { margin: 15px 5px 0; }
+#toolbar #tb-selections .cke_toolbox { min-height: 28px; _height: 28px; }
+
+#toolbar #tb-selections .tb-insertion { width: 6px; height: 26px; float: left; margin: 0 3px; background: url(../images/insert.png) no-repeat; }
+#toolbar #tb-selections .disabled a { background: url(../images/disabled.png) no-repeat 50% 50%; }
+#toolbar #tb-selections .disabled .cke_icon { opacity: 0.2; }
+
+/* options */
+#toolbar #tb-options { margin: 10px 5px 8px; }
+#toolbar #tb-options .cke_top { padding: 12px 6px 6px 12px;
+	background: rgba(0,0,0,0.15) !important;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(0,0,0,0.15)), to(rgba(0,0,0,0.05))) !important;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.15), rgba(0,0,0,0.05));
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0 0 5px rgba(0,0,0,0.2); }
+
+#toolbar #tb-options .cke_toolgroup,
+#toolbar #tb-options .cke_rcombo a { margin: 0 6px 6px 0; }
+
+/* clear */
+#toolbar .cke_skin_wygwam2 .cke_clear { display: block; float: left; width: 16px; height: 26px; background: url(../images/return.gif) no-repeat 50% 50%; }
+#toolbar #tb-selections .cke_clear + * { clear: left; }
+#toolbar #tb-options .cke_clear { clear: left; }
+#toolbar #tb-options .cke_clear + .cke_clear { clear: none; }
+
+
+#advanced td.remove a { display: block; width: 20px; height: 20px; text-indent: -9999em; background: url(../images/remove.png) 0 0; cursor: default; }
+#advanced td.remove a.enabled { background-position: 0 50%; cursor: pointer; }
+#advanced td.remove a.enabled:active { background-position: 0 100%; }
+
+/* ptSwitch */
+ul.ptSwitch { display: inline-block; margin: 0; padding: 0; list-style-type: none; line-height: 18px; font-weight: bold; cursor: default; -webkit-user-select: none; -moz-user-select: none; }
+ul.ptSwitch li { float: left; }
+ul.ptSwitch li.n { padding-right: 7px; }
+ul.ptSwitch li.y { padding-left: 7px; }
+ul.ptSwitch li.toggle { border: 1px solid; border-color: #666 #808080 #999; width: 50px; height: 16px; background: url(../images/switch-bg.jpg) no-repeat 100% 0;
+	border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -o-border-radius: 3px; }
+
+input.ptNumber { width: 5em !important; }

@@ -1,0 +1,50 @@
+{if segment_2==""}
+{redirect="courses/for/library-professionals"}
+{/if}
+{embed="inc/header" category_title="{if segment_4}{segment_4}{if:else}{segment_3}{/if}"}
+
+<div id="LeftContent">
+	
+	{embed="inc/print-icon"}
+	
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path=courses}" itemprop="url"><span itemprop="title">Courses</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path=courses/for/{segment_3}}" itemprop="url"><span itemprop="title">{segment_3_category_name}</span></a></li>
+		{if segment_4}
+			<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path=courses/for/{segment_3}}/{segment_4}" itemprop="url"><span itemprop="title">{segment_4_category_name}</span></a></li>
+		{/if}
+	</ul>
+
+	{if segment_4}
+	
+		<h1>{segment_4_category_name}</h1>
+
+
+		{segment_4_category_description}
+
+	
+
+	{if:else}
+		<h1>{segment_3_category_name}</h1>
+
+
+		{segment_3_category_description}
+	
+		<ul>
+			{exp:query sql="SELECT cat_id, cat_name, cat_url_title FROM exp_categories WHERE parent_id ='{segment_3_category_id}'"}
+			<li><h2><a href="{path=courses/for/{segment_3}/{cat_url_title}}">{cat_name}</a></h2></li>
+			{/exp:query}
+		</ul>
+	
+	{/if}
+
+</div>
+
+<aside id="Sidebar">
+	<ul>
+		<li><a href="{page_url}pdf">Print to PDF</a></li>
+	</ul>
+</aside>
+
+{embed="inc/footer"}

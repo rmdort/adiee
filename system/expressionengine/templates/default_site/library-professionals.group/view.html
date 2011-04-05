@@ -1,0 +1,44 @@
+{preload_replace:channel="course"}
+{exp:channel:entries channel="{channel}" disable="{global-disable}" limit="1" status="not Closed" require_entry="yes"}
+
+{embed="inc/header" title="{title}" description="{exp:eehive_hacksaw chars="500" allow="<br>"}{course-summary}{/exp:eehive_hacksaw}"}
+
+<div id="LeftContent">
+	
+	
+	
+	{embed="inc/print-icon"}
+	
+	<ul id="Crumbs">
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{site_url}" itemprop="url"><span itemprop="title">Home</span></a></li>
+		<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path={segment_1}}" itemprop="url"><span itemprop="title">{segment_1_category_name}</span></a></li>		
+		{if segment_2}
+			<li itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{path={segment_1}}/{segment_2}/{segment_3}" itemprop="url"><span itemprop="title">{title}</span></a></li>
+		{/if}
+	</ul>
+	
+	<article>
+		<header><h1>{title}</h1></header>
+		
+		{course-summary}
+		
+		{course-body}
+	</article>			
+
+</div>
+
+<aside id="Sidebar">
+	
+	{course-details}
+	
+	{testimonial-module}
+	
+	{related-courses}
+		
+	
+	
+</aside>
+
+{/exp:channel:entries}
+
+{embed="inc/footer"}
