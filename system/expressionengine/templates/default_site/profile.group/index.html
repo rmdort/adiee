@@ -1,10 +1,11 @@
-{embed="inc/header"}
+{exp:channel:entries channel="profile" disable="{global-disable}" limit="1"}
+{embed="inc/header" title='{title}'}
 
 <div id="main" role="main">
-	{exp:channel:entries channel="profile" disable="{global-disable}" limit="1"}
+	
 	<h1>{title}</h1>
 	{images}
-	<img src="{url}" alt="{desc}" />
+	{exp:imgsizer:size src="{url}" width="460" alt="{desc}"}
 	{if desc}<p class="caption">{desc}</p>{/if}
 	{/images}
 	<h2>Data</h2>
@@ -57,22 +58,23 @@
 	<div id="hcard-Nils-Hendriks" class="vcard">
 	 <span class="fn">{title}</span>
 	 <div class="org">{portfolio}</div>
-
-	 <a class="email" href="mailto:nils@nilshendriks.com">nils@nilshendriks.com</a>
+		{contact}
+			{if "{method}"=="Email"}<a class="email" href="mailto:{detail}">{detail}</a>{/if}
+		{/contact}
 	 <div class="adr">
-	  <div class="street-address">205 River Valley Road</div>
-	  <span class="locality">Singapore</span>
-	, 
-	  <span class="postal-code">238274</span>
-	
-	  <span class="country-name">Singapore</span>
-	
+	  {address}
+			{add}
+		
 	 </div>
-	 <div class="tel">+65 8113 4709</div>
-	 <a class="url" href="aim:goim?screenname=aimsomename">AIM</a>
-	 <a class="url" href="ymsgr:sendIM?yim">YIM</a>
-	 <a class="url" href="xmpp:jabber">Jabber</a>
-	<div class="tags"><a href="http://kitchen.technorati.com/contacts/tag/developer">developer</a> </div>
+	 {if tel}<div class="tel">{tel}</div>{/if}
+	{/address}
+	
+	{contact}
+	{if "{method}"=="AIM"}<a class="url" href="aim:goim?screenname={detail}">AIM</a>{/if}
+	{if "{method}"=="Jabber"}<a class="url" href="{detail}">AIM</a>{/if}
+	{if "{method}"=="YIM"}<a class="url" href="{detail}">AIM</a>{/if}
+	{if "{method}"=="MSN"}<a class="url" href="{detail}">MSN</a>{/if}
+	{/contact}
 	</div>
 	<a class="download" href="#">Download vCard</a>
 
