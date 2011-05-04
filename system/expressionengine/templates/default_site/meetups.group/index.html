@@ -1,6 +1,8 @@
-{embed="inc/header" title='{title}'}
+{embed="inc/header" {if segment_2}url_title="{segment_2}"{if:else} title="Meetups"{/if}}
 
 <div id="main" role="main">
+  
+{exp:ifelse parse="inward"}	  
 
 {if segment_2}
 
@@ -29,6 +31,8 @@
 </ul>
 
 {/if}
+
+{/exp:ifelse}	
 
 </div>
 
