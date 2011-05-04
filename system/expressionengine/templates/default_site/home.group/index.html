@@ -1,15 +1,19 @@
 {embed="inc/header" body_id="home"}
 
 <div id="main" role="main">
-	{exp:channel:entries channel="profile" disable="{global-disable}" limit="10"}
+	{exp:channel:entries channel="projects" disable="{global-disable}" limit="10"}
 	<article class="{categories limit="1" show_group="1"}{category_url_title}{/categories}">
-		<a href="{title_permalink=profile}" title="">
+		<a href="{title_permalink=project}" title="">
 			<h1>{title}</h1>
-			{background}
+			{images}
+			  {exp:imgsizer:size src="{url}" alt="{desc}" width="200" height="200"}
+			  {if desc}<p class="caption">{desc}</p>{/if}
+			{/images}
 		</a>
 	</article>
 	{/exp:channel:entries}
 </div>
+<!--
 <aside role="complementary">
 	<p>A Different Index tries to collect data about companies and people who build websites. Focused on Singapore and The Netherlands for now.</p>
 	<a href="#" title="">About ADI</a>
@@ -19,6 +23,6 @@
 		<li><a href="person.html" title="">Nils Hendriks</a></li>
 	</ul>
 </aside>
-
+-->
 
 {embed="inc/footer"}

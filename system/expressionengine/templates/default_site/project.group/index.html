@@ -1,0 +1,86 @@
+{exp:channel:entries channel="projects" disable="{global-disable}" limit="1"}
+{embed="inc/header" title='{title}'}
+
+<div id="main" role="main">
+	
+	<h1>{title}</h1>
+	{images}
+	{exp:imgsizer:size src="{url}" width="460" alt="{desc}"}
+	{if desc}<p class="caption">{desc}</p>{/if}
+	{/images}
+	<h2>Data</h2>
+	<table summary="This table shows data about this company">
+		<tbody>
+			<tr>
+				<th>Website</th>
+				<td><a class="external" href="http://nilshendriks.com" title="">{portfolio}</a></td>
+			</tr>
+			<tr>
+				<th>Jobtitle</th>
+				<td>{jobtitle}</td>
+			</tr>
+			<tr>
+				<th>Skillset</th>
+				<td>
+					{skills}
+				</td>
+			</tr>
+			<tr>
+				<th>Projects</th>
+				<td>
+					<ul>
+					{projects}
+						<li><a href="{project-url}" class="external">{project-name}</a>{if client-name} - {client-name}{/if}</li>
+					{/projects}
+					</ul>					
+				</td>
+			</tr>
+			<tr>
+				<th>Location</th>
+				<td>{country}</td>
+			</tr>
+								
+			
+<!--
+			Other sites				Stencils - stencil.posterous.com
+								Blog - blog.nilshendriks.com
+								Photography - 
+								photography.nilshendriks.com
+								Playground - playground.nilshendriks.com-->
+			
+
+		</tbody>
+	</table>
+	<h2>Background</h2>
+	{background}
+</div>
+<aside role="complementary">
+	<div id="hcard-Nils-Hendriks" class="vcard">
+	 <span class="fn">{title}</span>
+	 <div class="org">{portfolio}</div>
+		{contact}
+			{if "{method}"=="Email"}<a class="email" href="mailto:{detail}">{detail}</a>{/if}
+		{/contact}
+	 <div class="adr">
+	  {address}
+			{add}
+		
+	 </div>
+	 {if tel}<div class="tel">{tel}</div>{/if}
+	{/address}
+	
+	{contact}
+	{if "{method}"=="AIM"}<a class="url" href="aim:goim?screenname={detail}">AIM</a>{/if}
+	{if "{method}"=="Jabber"}<a class="url" href="{detail}">AIM</a>{/if}
+	{if "{method}"=="YIM"}<a class="url" href="{detail}">AIM</a>{/if}
+	{if "{method}"=="MSN"}<a class="url" href="{detail}">MSN</a>{/if}
+	{/contact}
+	</div>
+	<a class="download" href="#">Download vCard</a>
+
+</aside>
+
+{/exp:channel:entries}
+
+
+{embed="inc/footer"}

@@ -1,0 +1,38 @@
+{embed="inc/header" title='{title}'}
+
+<div id="main" role="main">
+
+{if segment_2}
+
+{exp:channel:entries channel="meetups" disable="{global-disable}"}
+
+<h1>{title}</h1>
+
+{summary}
+
+{body}
+{/exp:channel:entries}
+
+
+{if:else}
+
+<h1>Meetups</h1>
+
+<ul>
+{exp:channel:entries channel="meetups" disable="{global-disable}" dynamic="off"}
+  <li>
+    <h2><a href="{title_permalink=meetups}">{title}</a></h2>
+    {summary}
+  </li>
+  
+{/exp:channel:entries}
+</ul>
+
+{/if}
+
+</div>
+
+
+
+
+{embed="inc/footer"}
